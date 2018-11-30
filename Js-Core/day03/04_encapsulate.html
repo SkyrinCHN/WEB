@@ -15,21 +15,17 @@
 
   </div>
   <script>
-    var k = 100
-    function protect() {
-      var i = 1;
-      var j = 50;
-      return function () {
-        console.log(i++);
+    var lilei = {
+      name: "李雷",
+      age: 18,
+      favor: function () {
+        console.log(`我叫${this.name},喜欢唱歌,今年${this.age}岁了`);
       }
     }
-    var getNumber = protect();
-    getNumber();
-    getNumber();
-    console.dir(getNumber);
-    getNumber();
-    getNumber();
-    getNumber();
+    lilei.favor();
+    lilei.age++;
+    lilei.name = "陈磊";
+    lilei.favor();
   </script>
 </body>
 
