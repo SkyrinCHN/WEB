@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Onclick</title>
+</head>
+<body>
+    <p id="dd">快下课了,不要慌</p>
+    <input type="button" value="获取文本" onclick="getMsg()">
+    <input type="button" value="更改文本" onclick="setMsg()">
+    <script>
+        function getMsg() {
+            var text = dd.innerHTML;
+            alert(text);
+        }
+        function setMsg() {
+            dd.innerHTML="准点走人";
+        }
+    </script>
+</body>
+</html>

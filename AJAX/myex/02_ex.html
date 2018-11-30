@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="走你" onclick="msg()">
+  <script>
+    function msg(){
+      // 1.创建jax对象
+      var xhr = new XMLHttpRequest();
+      console.log(1);
+      //2.绑定监听器
+      xhr.onreadystatechange = function(){
+        console.log(2);
+        if(xhr.readyState == 4 && xhr.status==200){
+          console.log(3);
+          var result = xhr.responseText;
+          console.log(result);
+        }
+      }
+      // 3.打开连接
+      xhr.open("get","/demo/ajaxDemo",true);
+      // 4.发送请求
+      xhr.send(null);
+    }
+  </script>
+</body>
+</html>

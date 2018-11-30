@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src="../js/jquery.slim.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <style>
+    #lunbotu > div > div > img {
+      width: 100%;
+    }
+
+    #lunbotu > ul > li {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      display: inline-block;
+      padding-right: .5rem;
+      color: #0079ff;
+      content: ">>"
+    }
+
+    .pagination .page-item .page-link {
+      border-radius: 10%;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <!--轮播图-->
+  <div class="carousel text-center" data-ride="carousel" id="lunbotu">
+    <!--轮播图片-->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="carousel5.jpeg" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="carousel6.jpeg" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="carousel7.jpeg" alt="">
+      </div>
+    </div>
+    <!--导航指示符-->
+    <ul class="carousel-indicators">
+      <li data-slide-to="0" data-target="#lunbotu"></li>
+      <li data-slide-to="1" data-target="#lunbotu"></li>
+      <li data-slide-to="2" data-target="#lunbotu"></li>
+    </ul>
+    <!--左右箭头-->
+    <a href="">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a href="">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+  <!--模态框-->
+  <button class="btn btn-primary" data-target="#modalbutton" data-toggle="modal">芝麻开门</button>
+  <div class="modal" id="modalbutton">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span>这是头</span>
+          <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <span>这是主体</span>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" data-dismiss="modal">一切都结束了</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--徽章-->
+  <h3>徽章</h3>
+  <ul class="list-unstyled">
+    <li>收件箱 <a href="#" class="badge bg-warning badge-pill">10</a></li>
+    <li>点赞 <a href="#" class="badge bg-success badge-pill">10</a></li>
+    <li>踩 <a href="#" class="badge bg-info badge-pill">10</a></li>
+    <li>评论 <a href="#" class="badge bg-danger badge-pill">10</a></li>
+  </ul>
+  <!--巨幕-->
+  <div class="jumbotron">
+    <h3>boot的组件</h3>
+    <p>就是考验你对英文单词的</p>
+    <p>记忆能力</p>
+    <p>而存在的</p>
+  </div>
+  <!--面包屑导航-->
+  <h3>面包屑导航</h3>
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">学习用品</a></li>
+    <li class="breadcrumb-item"><a href="#">写字用品</a></li>
+    <li class="breadcrumb-item"><a href="#">铅笔</a></li>
+    <li class="breadcrumb-item"><a href="#">2B铅笔</a></li>
+  </ul>
+
+  <!--分页-->
+  <h4>分页</h4>
+  <ul class="pagination justify-content-between w-50 ">
+    <li class="page-item disabled"><a class="page-link" href="#">上一页</a></li>
+    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">4</a></li>
+    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item"><a class="page-link" href="#">下一页</a></li>
+  </ul>
+
+  <!--进度条-->
+  <h4>进度条progress</h4>
+  <div class="progress">
+    <div class="progress-bar w-25 bg-danger">
+    </div>
+  </div>
+  <!--条纹进度条-->
+  <div class="progress">
+    <div class="progress-bar bg-warning w-50 progress-bar-striped"></div>
+  </div>
+  <!--条纹加动画-->
+  <div class="progress">
+    <div class="progress-bar bg-primary w-75 progress-bar-striped progress-bar-animated"></div>
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar bg-danger w-25 progress-bar-striped progress-bar-animated"></div>
+  </div>
+  <div class="progress">
+    <div class="progress-bar bg-warning w-50 progress-bar-striped progress-bar-animated"></div>
+  </div>
+  <div class="progress">
+    <div class="progress-bar bg-success w-75 progress-bar-striped progress-bar-animated"></div>
+  </div>
+  <div class="progress">
+    <div class="progress-bar bg-info w-100 progress-bar-striped progress-bar-animated"></div>
+  </div>
+  <!--综合进度条-->
+  <div class="progress">
+    <div class="progress-bar bg-danger w-25 progress-bar-striped progress-bar-animated"></div>
+    <div class="progress-bar bg-warning w-50 progress-bar-striped progress-bar-animated"></div>
+    <div class="progress-bar bg-success w-75 progress-bar-striped progress-bar-animated"></div>
+    <div class="progress-bar bg-primary w-100 progress-bar-striped progress-bar-animated"></div>
+  </div>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post" enctype="multipart/form-data">
+    <table align="center" border="1px" bordercolor="blue">
+        <tr>
+            <td>
+                用户名:
+            </td>
+            <td>
+                <input type="text" name="uname" placeholder="用户名" maxlength="15" minlength="6">
+            </td>
+        </tr>
+        <tr>
+            <td>密码: </td>
+            <td><input type="password" name="upwd" placeholder="密码"></td>
+        </tr>
+        <tr>
+            <td>性别:</td>
+            <td>
+                <input type="radio" name="sex" value="m" id="sex_m">
+                <label for="sex_m">男</label>
+                <input type="radio" name="sex" value="f" id="sex_f">
+                <label for="sex_f">女</label>
+                <input type="radio" name="sex" value="un" checked id="sex_un">
+                <label for="sex_un">保密</label>
+            </td>
+        </tr>
+        <tr>
+            <td>头像:</td>
+            <td><input type="file" name="facecat"></td>
+        </tr>
+        <tr>
+            <td> 籍贯:</td>
+            <td>
+                <select name="where" >
+                <option selected>北京</option>
+                <option >上海</option>
+                <option>广州</option>
+                <option>深圳</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td width="100px">愿意到以下城市工作: </td>
+            <td>
+                <select name="want[]" size="4"  multiple>
+                    <option value="北京">北京</option>
+                    <option value="上海">上海</option>
+                    <option value="广州">广州</option>
+                    <option value="深圳">深圳</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">留言:</td>
+            <td>
+                <textarea name="massage"  cols="40" rows="5"></textarea><br>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit"value="提交">
+                <input type="reset" value="清除">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="checkbox" id="hidden">
+                <label for="hidden">不要公开我的信息</label>
+            </td>
+        </tr>
+    </table>
+</form>
+<iframe src="test.html" frameborder="1" style="width: 50%" align="center"></iframe>
+</body>
+</html>

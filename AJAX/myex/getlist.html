@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>getlist</title>
+</head>
+<body>
+  <input type="botton" value="显示所有用户信息" onclick="getmsg()">
+  <div id ="d1"></div>
+  <script>
+    function getmsg(){
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if(xhr.readyState = 4 && xhr.status == 200){
+          //result响应回来的是一个字符串
+          //js无法操作字符串具体的对象
+          //这个字符串是json字符串,我们可以把这个字符串转化为Json数组
+          var result = xhr.responseText;
+          var arr = JSON.parse(result);
+          var info ="";
+          for(var i = 0 ;i < arr.length;i++){
+            //console.log(arr[i].uname);
+             info += "<p>"+arr[i].uname+" "+arr[i].upwd+"</p>";
+          }
+          d1.innerHTML = info;
+        }
+      }
+        xhr.open("get","/demo/userlist",true)
+        xhr.send(null);
+    }
+  </script>
+</body>
+</html>

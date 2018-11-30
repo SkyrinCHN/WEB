@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src="../js/jquery.slim.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <style>
+    #test1 > ul > li {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    #test1 > ul > li:hover {
+      background: gray;
+    }
+
+    #test1 > ul > li.active {
+      background: #0aa1ed;
+    }
+    #test1>a{
+      background: rgba(0,0,0,0.5);
+      width: 5%;
+      height: 20%;
+      top:40%;
+    }
+    #test1>div>div>img{
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <div id="test1" class="carousel text-center" data-ride="carousel">
+    <!--轮播的图片-->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../img/index/banner1.png" alt="">
+      </div>
+      <div class="carousel-item ">
+        <img src="../img/index/banner2.png" alt="">
+      </div>
+      <div class="carousel-item ">
+        <img src="../img/index/banner3.png" alt="">
+      </div>
+      <div class="carousel-item ">
+        <img src="../img/index/banner4.png" alt="">
+      </div>
+    </div>
+    <!--导航指示符-->
+    <ul class=" carousel-indicators">
+      <li class="active" data-slide-to="0" data-target="#test1"><a href="#"></a></li>
+      <li data-slide-to="1" data-target="#test1"><a href="#"></a></li>
+      <li data-slide-to="2" data-target="#test1"><a href="#"></a></li>
+      <li data-slide-to="3" data-target="#test1"><a href="#"></a></li>
+    </ul>
+    <!--左右导航指示符-->
+    <a class="carousel-control-prev" data-slide="prev" data-target="#test1" href="#"><span class="carousel-control-prev-icon"></span></a>
+    <a href="#" class="carousel-control-next" data-slide="next" data-target="#test1"><span class="carousel-control-next-icon"></span></a>
+  </div>
+  <div id="total">
+  <div class="card">
+    <div class="card-header">
+      <a href="#card1" data-toggle="collapse" class="card-link">卡片一</a>
+    </div>
+    <div id="card1" class="collapse" data-parent="#total">
+      <div class="card-body">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusantium, atque corporis culpa cum dolorem ducimus, eius facere fuga illum iste iusto minus officiis perferendis quae voluptatem voluptatum. Nihil, porro!
+      </div>
+    </div>
+  </div>
+    <div class="card">
+      <div class="card-header">
+        <a href="#card2" data-toggle="collapse" class="card-link">卡片二</a>
+      </div>
+      <div id="card2" class="collapse" data-parent="#total">
+        <div class="card-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusantium, atque corporis culpa cum dolorem ducimus, eius facere fuga illum iste iusto minus officiis perferendis quae voluptatem voluptatum. Nihil, porro!
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a href="#card3" data-toggle="collapse" class="card-link">卡片三</a>
+      </div>
+      <div id="card3" class="collapse" data-parent="#total">
+        <div class="card-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusantium, atque corporis culpa cum dolorem ducimus, eius facere fuga illum iste iusto minus officiis perferendis quae voluptatem voluptatum. Nihil, porro!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #d1 {
+      width: 1000px;
+      height: 560px;
+      margin: 0 auto;
+      background-image: url("./02878_thesleepinggiantandthemoon_2880x1800.jpg");
+      background-size: cover;
+    }
+    div.black{
+      width: 270px;
+      height: 300px;
+      background: rgba(0, 0, 0,0.3);
+      margin-left: 623px;
+      margin-top: 119px;
+    }
+    
+    td{
+      color: aliceblue;
+    }
+    a{
+      color: aliceblue;
+      text-decoration: none;
+    }
+    .uname ,.upwd{
+      width: 100%;
+      height: 75%;
+      border: 0;
+      outline: 0;
+    }
+    .submit{
+      background: -webkit-linear-gradient(top, #27b0f6 0%, #0aa1ed 100%);
+      background: -o-linear-gradient(top, #27b0f6 0%, #0aa1ed 100%);
+      background: -ms-linear-gradient(top, #27b0f6 0%, #0aa1ed 100%);
+      /* border: 1px solid #0a0; */
+      width: 100%;
+      height: 80%;
+      color: #fff;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="d1">
+    <table></table>
+    <div id="d2" class="black" align="center">
+      <table id="t1" align="center" height="100%">
+        <tr>
+          <td>登录学子商城</td>
+          <td>用户名注册</td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center"><input type="text" placeholder="请输入您的用户名" id="uname" class="uname"></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center"><input type="password" placeholder="请输入您的密码" class="upwd" id="upwd"></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="t1"><span>自动登录</span></label> </td>
+          <td><a href="#">忘记密码?</a></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="button" value="登录" class="submit"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

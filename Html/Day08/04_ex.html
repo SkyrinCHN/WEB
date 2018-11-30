@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .color{
+      color: red;
+    }
+    div.color{
+      background: black;
+    }
+    #s1{
+      color: blueviolet;
+    }
+    #h1{
+      color: purple;
+      font-style:italic;
+    }
+    #s1,#h1,.color{
+      background: pink;
+    }
+    div>p>span{
+      color: red;
+    }
+    div>span{
+      color: yellow;
+    }
+    #sina:link{
+      /* a标签被点击之前的状态 */
+      color: blue;
+    }
+    #sina:visited{
+      /*  a标签访问访问过后变为灰色*/
+      color:orange;
+    }
+    img:hover{
+      width: 400px;
+    }
+    #btn:active{
+      background: purple;
+      color: yellow;
+      width: 100px;
+      height: 100px;
+    }
+    #txt:focus{
+      background: yellow;
+    }
+  </style>
+</head> 
+<body>
+  <input type="text" id="txt">
+  <input type="button" id="btn" value="快来点我">
+  <img src="img/03.png" alt="">
+<img src="img/04.png" alt="">
+<img src="img/05.png" alt="">
+<img src="img/06.png" alt="">
+<img src="img/07.png" alt="">
+<img src="img/08.png" alt="">
+<img src="img/09.png" alt="">
+  <a href="http://www.sina.com.cn" id="sina">新浪</a>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <div class="color">我是div标签</div>
+  <p class="color">我是p标签</p>
+  <span id="s1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia aut, dolore assumenda debitis odio illum? Quo, consequuntur alias dolorum recusandae, obcaecati eius expedita quas tempora soluta voluptatibus beatae sint eos!</span>
+  <h2 id="h1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias tenetur quaerat est facilis saepe quos? Provident quas debitis assumenda reprehenderit, adipisci dolore ipsum a quibusdam, perferendis ab illum expedita atque.</h2>
+
+  <div>
+    <p>11111
+      <span>2222
+
+      </span>
+    </p>
+    <span>33333</span>
+
+  </div>
+</body>
+</html>

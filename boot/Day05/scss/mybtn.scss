@@ -1,0 +1,24 @@
+$btncolor:#0aa1ed;
+$fontcolor:#fff;
+$btnheight:2.5rem;
+$hover_color:#f00;
+$btn-border:1px solid gray;
+$font-size:1rem;
+
+.mybtn{
+  display: block;
+  background: $btncolor;
+  height: $btnheight;
+  color: $fontcolor;
+  text-decoration: none;
+  width: 8rem;
+  text-align: center;
+  line-height: $btnheight;
+  border-radius: .5rem;
+  border: $btn-border;
+  font-size: $font-size;
+
+    &:hover{
+      color: $hover_color;
+    }
+}

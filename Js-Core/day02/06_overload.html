@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN-->
+  <div>
+  
+  </div>
+  <script>
+    function pay(){
+      if(arguments.length==1){
+        console.log(`现金结账${arguments[0]}`);
+      }else if(arguments.length==2){
+        console.log(`卡号${arguments[0]}结账`);
+      }else{
+        console.log(`手机二维码支付`);
+      }
+    }
+    pay(100);
+    pay("123456","12345");
+    pay();
+  </script>
+</body>
+</html>

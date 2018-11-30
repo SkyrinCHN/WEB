@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+    <form action="" method="get">
+        用户名:<input type="text" name="uname" minlength="6" maxlength="10"  value="" placeholder="用户名"><br>
+        密码:<input type="password" name="upwd"  value="" placeholder="密码"><br>
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+        <input type="button" value="点我也没用" onclick="show()">
+        <button type="reset">点我</button>
+        <hr>
+    </form>
+    <script>
+        function show() {
+            alert("点我也没用");
+        }
+    </script>
+    <form action="" method="post" enctype="multipart/form-data">
+        <input type="radio" name="gender[]" value="m">男
+        <input type="radio" name="gender[]" value="f">女
+        <input type="radio" name="gender[]"value="un" >待定
+        <hr>
+        <input type="checkbox" name="hobby[]" value="eat" >吃
+        <input type="checkbox" name="hobby[]" value="drink" >喝
+        <input type="checkbox" name="hobby[]" value="play">玩
+        <input type="checkbox" name="hobby[]" value="happy">乐
+        <hr>
+        <input type="hidden" name="buyid" value="20181102001">
+        <input type="file" multiple="multiple" name="facecat[]">
+        <hr>
+        <textarea name="content"  cols="5" rows="5"></textarea>
+        <hr>
+        <select name="car"   >
+            <option value="宝马760">宝马760</option>
+            <option value="奔驰S600" selected>奔驰S600</option>
+            <option value="奥迪A8L">奥迪A8L</option>
+            <option value="雷克萨斯ES300">雷克萨斯ES300</option>
+        </select>
+        <input type="submit" value="登录">
+    </form>
+</body>
+</html>

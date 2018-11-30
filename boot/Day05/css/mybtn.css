@@ -1,0 +1,14 @@
+.mybtn {
+  display: block;
+  background: #0aa1ed;
+  height: 2.5rem;
+  color: #fff;
+  text-decoration: none;
+  width: 8rem;
+  text-align: center;
+  line-height: 2.5rem;
+  border-radius: .5rem;
+  border: 1px solid gray;
+  font-size: 1rem; }
+  .mybtn:hover {
+    color: #f00; }

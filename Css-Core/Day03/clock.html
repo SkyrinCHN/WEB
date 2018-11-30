@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Clock</title>
+  <style>
+    #back {
+      width: 200px;
+      height: 200px;
+      border: 2px solid pink;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    #d1 {
+      width: 5px;
+      height: 90px;
+      background: black;
+      position: absolute;
+      top: 12px;
+      left: 94px;
+      transform-origin: center bottom;
+      animation: gogogo 6s linear  infinite;
+
+    }
+
+    #d2 {
+      width: 6px;
+      height: 61px;
+      background: red;
+      position: absolute;
+      top: 41px;
+      left: 94px;
+      transform-origin: center bottom;
+      animation: gogogo 60s linear  infinite;
+    }
+
+    @keyframes gogogo {
+      0% {
+        transform: rotate(0deg)
+      }
+
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="back">
+    <div id="d1"></div>
+    <div id="d2"></div>
+  </div>
+
+</body>
+
+</html>

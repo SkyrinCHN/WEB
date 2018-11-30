@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>hello world</h1>
+  <script>
+    var msg=prompt("请输入要发送的信息");
+    var i = msg.search(/(wo|[我卧])\s*([操艹草曹糙]|cao)/i);
+    if(i!= -1){
+      alert("发现敏感词汇,走你");
+      console.log(i);
+    }
+    else{
+      alert(`${msg}已发送`);
+    }
+  </script>
+</body>
+</html>

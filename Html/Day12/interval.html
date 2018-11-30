@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .banner {
+      width: 1000px;
+      height: 400px;
+      margin: 0 auto;
+      /*为子元素的绝对定位做准备 */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner ul.banner-img li {
+      float: left;
+    }
+
+    .banner a.ck-side {
+      width: 35px;
+      height: 70px;
+      position: absolute;
+      top: 165px;
+      border-radius: 5px;
+    }
+
+    .ck-left {
+      background: #ddd url("./arrow-left.png") no-repeat center center;
+      left: 3px;
+    }
+
+    .ck-right {
+      background: #ddd url("./arrow-right.png") no-repeat center center;
+      right: 3px;
+    }
+
+    ul.inde {
+      width: 120px;
+      height: 20px;
+      position: absolute;
+      left: 440px;
+      bottom: 20px;
+    }
+
+    ul.inde li{
+      width: 10px;
+      height: 10px;
+      float: left;
+      background: rgb(250, 248, 248);
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+
+    .banner li.active {
+      background: #0aa1ad;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="banner">
+    <!-- 4张大图 -->
+    <ul class="banner-img">
+      <li><a href="#"><img src="./banner1.png" alt=""></a></li>
+      <li><a href="#"><img src="./banner2.png" alt=""></a></li>
+      <li><a href="#"><img src="./banner3.png" alt=""></a></li>
+      <li><a href="#"><img src="./banner4.png" alt=""></a></li>
+    </ul>
+    <!-- 左右箭头 -->
+    <a href="#" class="ck-left ck-side"></a>
+    <a href="#" class="ck-right ck-side"></a>
+  </div>
+
+  <ul class="inde">
+    <!-- 导航指示器 -->
+    <li></li>
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+
+</html>

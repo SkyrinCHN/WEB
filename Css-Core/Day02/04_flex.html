@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex</title>
+  <style>
+    .c1,
+    .c2,
+    .c3 {
+      width: 200px;
+      height: 200px;
+    }
+    .c1 {
+      background: #f00;
+    }
+    .c2 {
+      background: #ff0;
+    }
+    .c3 {
+      background: #0ff;
+    }
+    #parent {
+      border: 1px solid #ff0;
+      display: flex;
+      /* 对齐方式:两端对齐 */
+      /* justify-content: space-between; */
+      /* 对齐方式 间距相同 */
+      justify-content: space-around;
+      /* flex-wrap: nowrap; */
+      /* 压缩方式: 横向反转 */
+      /* flex-flow:wrap-reverse; */
+      /* 压缩方式:竖向反转 */
+      /* flex-direction: column-reverse; */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="parent">
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+  </div>
+</body>
+
+</html>

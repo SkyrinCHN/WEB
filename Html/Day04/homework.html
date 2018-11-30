@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>homework</title>
+    </head>
+    <body>
+<!--在网页中新建一个div元素和P元素,内容随意-->
+<!--添加一个按钮,点击获取div中的文本和P标签的文本,拼接后并打印在控制台-->
+<!--再添加一个按钮,点击将div中的文本和P标签中的文本互换-->
+    <div id ='d1'>这是div元素</div>
+    <p id = 'p1'>这是P元素</p>
+    <input type="button" onclick="print()" value="打印" style="width: 100px;height: 50px;">
+    <input type="button" onclick="change()" value="交换" style="width: 100px;height:50px;">
+    <script>
+
+        function print() {
+            var str = '';
+            var str_d =d1.innerHTML;
+            var str_p = p1.innerHTML;
+            str = str_d+str_p;
+            console.log(str);
+        }
+        function change() {
+            var str = '';
+            var str_d =d1.innerHTML;
+            var str_p = p1.innerHTML;
+            str = str_d;
+            str_d = str_p;
+            str_p = str;
+            console.log(str_d);
+            console.log(str_p);
+        }
+    </script>
+    </body>
+</html>

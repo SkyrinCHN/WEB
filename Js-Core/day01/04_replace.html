@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var str = `小昆晚上8点回的宿舍,小鹏9点回的寝室,
+    小鹏说:我比小涛先回的宿舍.
+    小昆说:小鹏你在逗我吗`;
+    str = str.replace(/小/ig, "阿")
+    alert(str);
+    var str1 = "do you love me? yes i do"
+    str1 = str1.replace(/\b[a-z]/ig, function (i) {
+      return i.toUpperCase();
+    })
+    alert(str1);
+  </script>
+</body>
+
+</html>

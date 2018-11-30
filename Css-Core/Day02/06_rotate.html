@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rotate</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    #d1 {
+      background: #ff0;
+    }
+
+    #d2 {
+      background: #0ff;
+      /* 旋转45度 位移50px */
+      /* transform: rotate(45deg) translate(50px); */
+      /* 旋转原点 */
+      /* transform-origin: top right; */
+
+    }
+
+    #d2:hover {
+      /* transform: translate(200px, 200px); */
+      /* transform:scalex(-0.5) */
+      transform: rotate(60deg);
+      transform-origin: bottom left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="d1">参考元素</div>
+  <div id="d2">转换元素</div>
+</body>
+
+</html>

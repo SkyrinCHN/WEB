@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN-->
+  <div>
+  </div>
+  <script>
+    var json = ["我操", "卧槽", "我艹", "我草"];
+    var reg = json.join("|");
+    // var reg = new  RegExp(json.join("|"));
+    var msg = "nija我草,你家真大";
+    var i = msg.search(reg);
+    console.log(i);
+    if (i != -1) {
+      console.log("请文明用语");
+    } else {
+      console.log(msg);
+    }
+    
+    var input = prompt("请输入密码(6位数)");
+    var reg = /^\d{6}$/;
+    if (reg.test(input)) {
+      document.write("验证通过");
+    } else {
+      document.write("密码不符合规定,别闹");
+    }
+  </script>
+</body>
+
+</html>

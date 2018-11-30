@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      border: 1px solid;
+      animation: yeah 5s linear 2s 2;
+      animation-fill-mode: both;
+    }
+
+    @keyframes yeah {
+      0% {
+        border-radius: 0%;
+        background: red
+      }
+
+      15% {
+        border-radius: 7%;
+        background: orange
+      }
+
+      30% {
+        border-radius: 15%;
+        background: yellow
+      }
+
+      45% {
+        border-radius: 22%;
+        background: green
+      }
+
+      60% {
+        border-radius: 30%;
+        background: lightseagreen
+      }
+
+      75% {
+        border-radius: 45%;
+        background: blue
+      }
+
+      90% {
+        border-radius: 50%;
+        background: purple
+      }
+    }
+    div:hover{
+      animation-play-state:running;
+      /* animation-name: yeah;
+      animation-duration: 2s;
+      animation-timing-function: linear;
+      /* animation-iteration-count: infinite; */
+      /* animation-direction: alternate-reverse; */
+      /* animation-direction: alternate;
+      animation-fill-mode: backwards;  */
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+#btn1 {
+  width: 10rem;
+  height: 5rem;
+  font-size: 20px;
+  line-height: 20rem; }
+
+.myborder, .my_buttom_border {
+  border: 100px solid transparent;
+  width: 400px;
+  margin-left: 20px;
+  height: 20px; }
+
+.my_buttom_border {
+  border-bottom-color: #f10215; }
+  .my_buttom_border:hover {
+    border-bottom-color: #000000; }
+
+div {
+  height: 340px; }
+
+p {
+  border-radius: 5px;
+  background: #0aa1ed; }

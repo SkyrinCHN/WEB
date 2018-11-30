@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework2</title>
+</head>
+<body>
+<form action="" method="post">
+    <fieldset>
+        <legend>用户基本信息</legend>
+        <table>
+            <tr>
+                <td>用户名称:</td>
+                <td>
+                    <input type="text" name="uname" placeholder="请输入用户名">
+                </td>
+            </tr>
+            <tr>
+                <td>用户密码:</td>
+                <td>
+                    <input type="password" name="upwd" placeholder="请输入密码">
+                </td>
+            </tr>
+            <tr>
+                <td>用户性别:</td>
+                <td>
+                    <input type="radio" name="sex" value="男" id="m"><label for="m">男</label>
+                    <input name="sex" type="radio" value="女" id="f"><label for="f">女</label>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <table border="1px" width="400px">
+        <tr>
+            <td>用户爱好:</td>
+            <td>
+                <input type="checkbox" name="hobby[]" value="eat" id="e"><label for="e">吃</label>
+                <input type="checkbox" name="hobby[]" value="drink" id="d"><label for="d">喝</label>
+                <input type="checkbox" name="hobby[]" value="wench" id="w"><label for="w">嫖</label>
+                <input type="checkbox" name="hobby[]" value="gamble" id="g"><label for="g">赌</label>
+            </td>
+        </tr>
+        <tr>
+            <td>选择头像:</td>
+            <td>
+                <input type="file" name="facecat">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                自我介绍:
+            </td>
+            <td>
+                <textarea name="massage"  cols="20" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>工作城市:</td>
+            <td>
+               <select size = '4'>
+                   <option value="beijing" name="workcity[]" value="beijing">北京</option>
+                   <option value="shanghai" name="workcity[]" value="shanghai">上海</option>
+                   <option value="guangzhou" name="workcity[]" value="guangzhou">广州</option>
+                   <option value="shenzhen" name="workcity[]" value="shenzhen">深圳</option>
+               </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit" style="width: 50px" >提交</button>
+                <button type="reset" style="width: 50px" >重置</button>
+                <button  style="width: 100px" >普通按钮</button>
+
+            </td>
+
+        </tr>
+    </table>
+</form>
+</body>
+</html>

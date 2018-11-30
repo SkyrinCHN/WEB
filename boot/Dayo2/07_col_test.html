@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src="../js/jquery.slim.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <style>
+    .row {
+      border: 1px solid blueviolet;
+    }
+
+    .row div {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+<!--不同屏幕下  列的适应性问题 小屏幕向上兼容大屏幕-->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">大屏幕</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">中屏幕</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 ">小屏幕</div>
+  </div>
+  <h1>列偏移</h1>
+  <div class="row">
+    <div class="col-sm-3">第一列</div>
+    <div class="col-sm-3 offset-6">第二列</div>
+  </div>
+  <h1>一个div col-2 偏移到最右边</h1>
+  <div class="row">
+    <div class="col-2 offset-10">就我一个</div>
+  </div>
+</div>
+</body>
+
+</html>

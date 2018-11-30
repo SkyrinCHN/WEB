@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN-->
+  <div>
+
+  </div>
+  <script>
+    // // 全局变量
+    // var global = "全局变量1";
+
+    // function fun1() {
+    //   document.write(`我要使用${global},在function里<br>`);
+    // }
+    // fun1();
+    // document.write(`我要使用${global},在${global}下边<br>`);
+
+    // function fun2() {
+    //   var private = "fun2私有";
+    //   document.write(`我在fun2里访问${private}<br>`);
+    // }
+    // fun2();
+    // if (window.private != undefined) {
+    //   document.write(`我在外部也能访问${private}<br>`);
+    // } else {
+    //   document.write(`我在外部访问不到fun2里的${private}`);
+    // }
+    var $i = 2;
+    var $str1 = "准备工作一";
+    var $str2 = "准备工作二";
+
+    function fun1() {
+      var $i = 3;
+      console.log($i);
+      console.log(window.$i);
+      if (window.k !== undefined) {
+        console.log(window.$k);
+      } else {
+        console.log("没有这玩意");
+      }
+    }
+    console.dir(fun1);
+    fun1();
+  </script>
+</body>
+
+</html>

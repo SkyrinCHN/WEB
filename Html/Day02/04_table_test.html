@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>table</title>
+</head>
+<body>
+  <table width="300px" height="300px" border="2px" align="center">
+    <caption>跨列跨行练习</caption>
+    <tr >
+      <td colspan="2" align="center" bgcolor='green'>A</td>
+      <td rowspan="2" align="center" bgcolor="#006699">A</td>
+    </tr>
+    <tr bgcolor="yellow">
+      <td rowspan="2" align="center" >A</td>
+      <td align="center" bgcolor="gray">A</td>
+    </tr>
+    <tr bgcolor="red">
+      <td colspan="2" align="center">A</td>
+    </tr>
+  </table>
+  <hr>
+  <table width="300px" height="300px" border="2px" align="center">
+    <!-- 表格的标题 -->
+    <caption>16个A</caption>
+    <!-- 行列的标题 th 字体加粗 居中对齐  -->
+    <thead>
+      <!-- 表头行 可以将连续的几个行，划分到一个组中，作为表头，统一管理 -->
+      <tr>
+        <th>周一</th>
+        <th>周二</th>
+        <th>周三</th>
+        <th>周四</th>
+      </tr>
+    </thead>
+    <tbody align="center">
+      <!-- 可以将连续的几行，划分到一个组中，作为表的主体，统一管理 -->
+      <tr>
+        <td >A</td>
+        <td>A</td>
+        <td>A</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>A</td>
+        <td>A</td>
+        <td>A</td>
+      </tr>
+    </tbody>
+    <tfoot>
+        <!-- 表尾 可以将连续的几行，划分到一个组中，作为表的尾部，统一管理 -->
+        <tr>
+          <td colspan="3" align="center">A</td>
+          <td align="center">
+            <!-- 表格的嵌套，只能放在TD中 -->
+            <table border="2px">
+              <tr>
+                <td>1</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>4</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

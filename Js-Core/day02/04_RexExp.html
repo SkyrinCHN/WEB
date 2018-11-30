@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <style></style>
+</head>
+
+<body>
+  <!-- author:LiuHai -->
+  <!-- github:https://github.com/SkyrinCHN -->
+  <div></div>
+  <script>
+    var str = "我说你胖,你说我比你胖,他又说你比他胖,我说他比你胖,到底谁胖";
+    var reg = /胖|说/g;
+    do {
+      var arr = reg.exec(str);
+      if (arr != null) {
+        console.log(`在${arr.index}处找到匹配内容${arr[0]}`);
+      } else {
+        break;
+      }
+    } while (true);
+  </script>
+</body>
+
+</html>

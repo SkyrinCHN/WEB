@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xuezi</title>
+</head>
+<body>
+  <p>
+      <input type="text" id="uname" placeholder="请输入用户名" onfocus="uname_focus()" onblur="uname_blur()">
+      <span id="checkuname"></span>
+  </p>
+  <p>
+      <input type="password" id="upwd" placeholder="请输入密码" onfocus="pwdfocus()" onblur="pwdblur()">
+      <span id="checkupwd"></span>
+  </p>
+    <input type="button" value="提交注册信息">
+    <script>
+      function uname_focus() { 
+        checkuname.innerHTML="用户名在6到9位之间";
+      }
+      function uname_blur(){
+        var text = uname.value;
+        if(!text){
+          console.log('空');
+          checkuname.innerHTML="用户名不能为空";
+        }else if(text.length>=6 && text.length<=9){
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function (){
+            if(xhr.readyState == 4 && xhr.status == 200){
+              var result = xhr.responseText;
+              console.log(result);
+            }
+            xhr.open("get","/demo/regcheck?uname="+uname,true)
+            xhr.send(null);
+          }
+        }else{
+          console.log("长短");
+          checkuname.innerHTML="用户名不符合长度";
+        }
+      }
+      function pwdfocus(){
+            checkupwd.innerHTML="密码长度6到12位之间";
+      }
+      function pwdblur() {
+        var text=upwd.value;
+          if(!text){
+              checkupwd.innerHTML="密码不能为空";
+           }else if(text.length>=6 && text.length<=12){
+              checkupwd.innerHTML="密码可用";
+           }else{
+              checkupwd.innerHTML="密码不符合或超出长度";           
+            }
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    p[id]{
+      color: red;
+    }
+    [class][title]{
+      color: blue;
+    }
+    [class="c"]{
+      color: aqua;
+    }
+    [title~='yes']{
+      color:brown;
+    }
+    
+  </style>
+</head>
+<body>
+  <div>
+    <p id="p1">大娃</p>
+    <p class="c" title="千里眼">二娃</p>
+    <span class="c">三娃</span>
+    <b class="c">四娃</b>
+    <div id="d1">五娃</div>
+    <h4 title="我能隐身">六娃</h4>
+    <span id="one" title="yes I'm ">七娃</span>
+  </div>
+</body>
+</html>

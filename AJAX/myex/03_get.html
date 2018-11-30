@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>get</title>
+</head>
+<body>
+  <p>
+    用户名称:
+    <input type="text" id = "uname">
+  </p>
+  <p>
+    用户密码:
+    <input type="password" id="upwd">
+  </p>
+  <input type="button" value="登录" onclick="login()">
+  <div id="d1"></div>
+
+  <script> 
+    function login() {
+      // 1.创建异步对象
+      // 2.绑定监听器
+      // 3.打开连接,创建请求
+      // 4.发送请求
+      var xhr = new XMLHttpRequest();
+      console.log(1);
+      xhr.onreadystatechange = function(){
+        console.log(2)
+        if(xhr.readyState==4 && xhr.status==200){
+          console.log(3);
+          var result = xhr.responseText;
+          d1.innerHTML=result;
+        }
+      }
+      var  $uname=uname.value;
+      var $upwd = upwd.value;
+      xhr.open("get","/demo/login?uname="+$uname+"&&upwd="+$upwd,true);
+      xhr.send(null);
+      }
+  </script>
+</body>
+</html>

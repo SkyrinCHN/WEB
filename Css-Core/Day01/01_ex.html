@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    table{
+      width: 400px;
+      height: 400px;
+      border: 1px solid greenyellow;
+    }
+    table td{
+      border:1px solid greenyellow;
+    }
+    tr:nth-child(1){
+      background: #0ff;
+    }
+    tr:last-child{
+      background:lightcoral;
+    }
+    tr:nth-child(3) td:nth-child(2){
+      background: orangered;
+    }
+    
+    p:not([class]){
+      color: red;
+    }
+    td:not(:first-child) {
+      background:#006699;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>独生子女</p>
+  </div>
+  <div>
+    <p class="我是老大">老大</p>
+    <p>老二</p>
+  </div>
+  <table>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </table>
+</body>
+</html>

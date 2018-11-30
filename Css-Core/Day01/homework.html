@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .banner {
+      width: 1000px;
+      height: 400px;
+      overflow: hidden;
+      margin: 0 auto;
+      position: relative;
+
+    }
+
+    .banner ul.bannerImg li {
+      float: left;
+    }
+
+    .banner a.ck_left {
+      width: 35px;
+      height: 70px;
+      background: rgba(100, 100, 100, 0.4) url("./img/arrow-left.png") no-repeat center center;
+      position: absolute;
+      top: 165px;
+      border-radius: 5px;
+      left: 3px;
+    }
+
+    .banner a.ck_right {
+      width: 35px;
+      height: 70px;
+      background: rgba(100, 100, 100, 0.4) url("./img/arrow-right.png") no-repeat center center;
+      position: absolute;
+      top: 165px;
+      right: 3px;
+    }
+
+    .banner ul.button {
+      width: 120px;
+      height: 20px;
+      position: absolute;
+      bottom: 15px;
+      left: 450px;
+    }
+
+    ul.button li {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #fff;
+      float: left;
+      margin-right: 10px;
+    }
+
+    ul.button li.active {
+      background: #00a5f3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="banner">
+    <!-- 4张轮播图 -->
+    <ul class="bannerImg">
+      <li><a href=""><img src="./img/banner1.png" alt=""></a></li>
+      <li><a href=""><img src="./img/banner2.png" alt=""></a></li>
+      <li><a href=""><img src="./img/banner3.png" alt=""></a></li>
+      <li><a href=""><img src="./img/banner4.png" alt=""></a></li>
+    </ul>
+    <!-- 左右箭头 -->
+    <a href="#" class="ck_left"></a>
+    <a href="#" class="ck_right"></a>
+    <ul class="button">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</body>
+
+</html>

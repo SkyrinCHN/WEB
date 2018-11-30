@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>getXML</title>
+</head>
+<body>
+    <input type="button" value="获取XML数据" onclick="getXML()">
+    <script>
+      function getXML(){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+          if(xhr.readyState==4 && xhr.status==200){
+            var result = xhr.responseXML;
+            var  students = result.getElementsByTagName("student");
+            var  s1 = students[0];
+            var s1_name = s1.getElementsByTagName("name")[0];
+            console.log(s1_name.innerHTML);
+          }
+        }
+        xhr.open("get", "student.xml", true);
+        xhr.send(null); 
+      }
+    </script>
+</body>
+</html>

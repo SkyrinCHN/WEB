@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <style></style>
+  </head>
+  <body>
+    <!-- author:LiuHai -->
+    <!-- github:https://github.com/SkyrinCHN -->
+    <div>
+      <ul id="u1">
+        <li>11</li>
+        <li>22</li>
+        <li>555</li>
+        <li>44</li>
+      </ul>
+    </div>
+    <script>
+      //简单切割,切邮箱
+      var email = "liuhai14@icloud.com";
+      var arr = email.split("@");
+      console.log(`用户名为:${arr[0]}`);
+      console.log(`域名为:${arr[1]}`);
+
+      // 反转字符串(实现过程,把字符串按空字符切割成数组split(""),
+      //对数组进行反转(reverse()),
+      //然后再按照""空字符拼接成字符串join(""))
+      var pid = "50038119920614571X";
+      //按空字符切割字符串,变成了数组
+      pid = pid.split("");
+      //反转数组中的元素
+      pid = pid.reverse();
+      //把反转的数据变回字符串 用""空字符拼接
+      pid = pid.join("");
+      console.log(pid);
+      console.log(typeof pid);
+      
+      //截取ul里li的值  并进行排序
+      var html =u1.innerHTML;//获取ul的内容
+      console.log(html);
+      var arr = html.replace(/^\s+<li>|<\/li>\s+$/g, "");//把ul的li的头<li> 尾</li> 替换成""
+      console.log(arr);
+      arr = arr.split(/<\/li>\s*<li>/);//然后把</li><li>挡间隔符 切出数字来
+      console.log(arr);
+      arr.sort(function(a, b) {//对切出来的数组进行排序
+        return b - a;
+      });
+      console.log(arr);
+      html = arr.join("</li><li>");//排序完了,又把中间间隔符</li><li>放回去 此时是字符串了
+      html = `<li>${html}</li>`;//再把头尾的<li>  </li>加上 
+      console.log(html);
+      u1.innerHTML = html;//最后把值给ul还回去 
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+@mixin btn($width,$height,$fontsize,$lineheight) {
+  width: $width;
+  height: $height;
+  font-size: $fontsize;
+  line-height: $lineheight;
+}
+
+#btn1 {
+  @include btn(10rem, 5rem, 20px, 20rem);
+}
+
+.myborder {
+  border: 100px solid transparent;
+  width: 400px;
+  margin-left: 20px;
+  height: 20px;
+}
+
+.my_buttom_border {
+  @extend .myborder;
+  border-bottom-color: #f10215;
+  &:hover {
+    border-bottom-color: #000000;
+  }
+}
+
+@function get_mywidth($n) {
+  $large: 60px;
+  $small: 10px;
+  @return $n*max($large,$small)+($n - 1)*min($large,$small);
+}
+
+div {
+  height: get_mywidth(5);
+}
+
+p {
+  @if (1+1==2) {
+    border-radius: 5px;
+  }
+  @if (5<3) {
+    border-radius: 10px;
+  }
+  @if (null) {
+    border-radius: 15px;
+  }
+  $type: m;
+  @if ($type==sum) {
+    background: #ff0000;
+  }@else if($type==mun){
+    background: #ffc107;
+  }@else if($type==mark){
+    background: #f0f;
+  }@else {
+    background: #0aa1ed;
+  }
+}

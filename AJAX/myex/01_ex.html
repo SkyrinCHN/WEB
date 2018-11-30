@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="异步获取后端数据" onclick="getMsg()" style="width: 200px;">
+  <script>
+    function getMsg() { 
+      //1.创建ajax对象
+      var xhr = new XMLHttpRequest();
+      console.log(xhr);
+      //2.绑定监听器,获取响应数据
+      xhr.onreadystatechange=function(){
+        console.log(111);
+        if(xhr.readyState ==4 && xhr.status==200){
+          console.log(33333);
+          var result = xhr.responseText;
+          console.log(result);
+        }
+      }
+      //3.打开连接,创建请求
+      xhr.open("get","/demo/ajaxDemo",true)
+      //4.发送请求
+      xhr.send(null);
+      
+
+     }
+  </script>
+</body>
+</html>

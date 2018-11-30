@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #d1 {
+      /* 径向渐变 */
+      width: 500px;
+      height: 500px;
+      background-image: radial-gradient(200px at 15% 15%, red 30%, orange 40%, yellow 45%,
+        white 100%)
+    }
+
+    #d2 {
+      /* 线型渐变 */
+      width: 500px;
+      height: 100px;
+      background-image: linear-gradient(to top, rgb(43, 30, 30) 0%, rgb(62, 172, 48) 100%)
+    }
+
+    #d3 {
+      /* 重复渐变 */
+      width: 500px;
+      height: 200px;
+      background-image: repeating-linear-gradient(0deg, #f00 0px, #ff0 50px, pink 100px)
+    }
+
+    /* #d4 {
+      /* 径向渐变 
+      width: 500px;
+      height: 500px;
+      background-image:repeating-radial-gradient(100px at center center, red 30%, orange 40%, yellow 45%,white 50%)
+    } */
+  </style>
+</head>
+
+<body>
+  <div id="d1"></div>
+  <div id="d2"></div>
+  <div id="d3"></div>
+  <div id="d4"></div>
+</body>
+
+</html>

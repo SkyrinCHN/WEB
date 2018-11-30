@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>用户名称:
+        <input type="text" id="uname" onfocus="uname_focus()" onblur="uname_blur()">
+        <span id="showUname"></span>
+    </p>
+    <p>
+        用户密码:
+        <input type="password" id="upwd" onfocus="upw_focus()" onblur="upw_blur()">
+        <sqan id="showUpwd"></sqan>
+    </p>
+
+    <script>
+        function uname_focus() {
+            showUname.innerHTML='用户名长度8-16位';
+        }
+        function uname_blur(){
+            var text = uname.value;
+            if(text==''){
+                showUname.innerHTML='用户名不能为空';
+            }else if(text.length>=8 && text.length<=16){
+                showUname.innerHTML="用户名可以使用";
+            }else{
+                showUname.innerHTML="用户名超出范围";
+            }
+        }
+        function upw_focus() {
+            showUpwd.innerHTML="密码长度8-16位";
+        }
+        function upw_blur() {
+            var text = upwd.value;
+            if(text == ""){
+                showUpwd.innerHTML='密码不能为空';
+            }else if(text.length>=8 && text.length<=16){
+                showUpwd.innerHTML='密码可以使用';
+            }else{
+                showUpwd.innerHTML='密码长度超出范围';
+            }
+        }
+    </script>
+</body>
+</html>

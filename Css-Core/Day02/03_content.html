@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #d1::before {
+      content: "老子说:";
+    }
+
+    #d2::after {
+      content: "----------毛泽东";
+      display: block;
+      background: rgb(198, 127, 207);
+      margin-left: 100px;
+    }
+
+    #d3 {
+      width: 400px;
+      height: 400px;
+      background: #ff0;
+    }
+
+    #d3::before {
+      content: "";
+      display: table;
+    }
+
+    #d4 {
+      width: 200px;
+      height: 200px;
+      background: lightseagreen;
+      margin-top: 30px;
+    }
+    #parent{
+      width: 650px;
+      border: 1px solid red;
+    }
+    div.c{
+      width: 150px;
+      height: 150px;
+      float: left;
+      border: 1px blue solid;
+    }
+    #parent::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="d1">锅儿是铁造的</div>
+  <div id="d2">枪杆子里出政权</div>
+  <div id="d3">
+    <div id="d4"></div>
+  </div>
+  <div id="parent">
+    <div class="c"></div>
+    <div class="c"></div>
+    <div class="c"></div>
+    <div class="c"></div>
+
+  </div>
+</body>
+
+</html>
