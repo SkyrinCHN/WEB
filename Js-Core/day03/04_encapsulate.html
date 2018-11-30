@@ -22,10 +22,10 @@
         console.log(`我叫${this.name},喜欢唱歌,今年${this.age}岁了`);
       }
     }
-    lilei.favor();
-    lilei.age++;
-    lilei.name = "陈磊";
-    lilei.favor();
+    console.dir(lilei.favor);
+    // lilei.name = "陈磊";
+    var favor = lilei.favor;
+    favor();
   </script>
 </body>
 
