@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN-->
+  <div>
+
+  </div>
+  <script>
+    // var lilei = {
+    //   name: "Li lei",
+    //   age: 18,
+    //   sex: "m"
+    // }
+
+    // function clone(obj) {
+    //   var newObj = {};
+    //   for (var key in obj) {
+    //     newObj[key] = obj[key];
+    //   }
+    //   return newObj;
+    // }
+    // lilei3 = lilei; //直接把地址给lilei3, 对象还是那个对象,只是多了一个地址
+    // lilei2 = clone(lilei); //克隆一个lilei给lilei2
+    // console.log(lilei2);
+    // console.log(lilei3 == lilei); //两对象比较  比较的是地址  true
+    // console.log(lilei2 == lilei); //false 两个对象 地址肯定不一样
+
+
+    function Student(name,age,sex) {
+      this.name =name ,
+        this.age = age,
+        this.sex = sex,
+        this.favor = function(){
+          console.log(`我叫${this.name},性别${this.sex},今年${this.age}岁`)
+        }
+    }
+    var chenglei = new Student("程磊",24,"m");
+    var yangyang = new Student("杨洋",26,"m");
+    var chengfeng = new Student("陈凤",24,"f");
+    var chenchunxia = new Student("陈春霞",24,"m");
+
+    console.log(chenglei);
+
+  </script>
+</body>
+
+</html>
