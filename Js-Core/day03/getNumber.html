@@ -1,32 +1,35 @@
 <!doctype html>
 <html lang="zh-CN">
+
 <head>
   <title>Title</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <style></style>
 </head>
+
 <body>
   <!--author:LiuHai -->
   <!--github:https://github.com/SkyrinCHN-->
   <div>
-  
+
   </div>
   <script>
-  
-    var i= 0;
-    function getNumber() {  
-      i++;
-      console.log(i);
+    var k = 100
+    function protect() {
+      var i = 1;
+      var j = 50;
+      return function () {
+        console.log(i++);
     }
+    var getNumber = protect();
     getNumber();
     getNumber();
     getNumber();
+    i=4;
     getNumber();
     getNumber();
-    getNumber();
-    getNumber();
-
   </script>
 </body>
+
 </html>
