@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN-->
+  <div>
+
+  </div>
+  <script>
+    // function f1(n){
+    //   if(n<3){
+    //     return 1;
+    //   }else{
+    //     return arguments.callee(n-1)+arguments.callee(n-2);//arguments.callee 可以在函数内调用函数本身,松耦合
+    //   }
+    // }
+    // var num = f1(4);
+    // console.log(num);
+    "use strict";
+    function fun(n) {
+      if (n < 3) return 1;
+      else {
+        var f1 = 1,
+          f2 = 1,
+          fn;
+        for (var i = 3; i <= n; i++) {
+          fn = f1 + f2;
+          f1 = f2;
+          f2 = fn;
+        }
+        return fn;
+      }
+    }
+    console.log(fun(400));
+  </script>
+</body>
+
+</html>

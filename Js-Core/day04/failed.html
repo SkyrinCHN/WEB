@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN-->
+  <div>
+
+  </div>
+  <script>
+    "use strict";
+    var person = {
+      id: 1001,
+      name: "陈磊",
+      age: 24
+    }
+    Object.defineProperty(person, "name", {
+      writable: false
+    });
+    Object.defineProperty(person, "id", {
+      writable: false
+    });
+    person.age = 29;
+    // person.id = 1002;
+    console.log(person);
+  </script>
+</body>
+
+</html>
