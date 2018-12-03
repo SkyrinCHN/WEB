@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN-->
+  <div>
+  </div>
+  <script>
+    // override 重写
+    var lilei = {
+      name:"lilei",
+      age:18,
+      toString:function(){
+        return `名字:${this.name},年龄:${this.age}`;
+      },
+      toUp:function(){
+        return this.name.toLocaleUpperCase();
+      }
+    }
+   console.log( lilei.toString());
+   console.log(lilei.toUp());
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN-->
+  <div>
+  </div>
+  <script>
+    function get() {
+      var num = 1;
+      return function () {
+        num++;
+        console.log(num);
+      }
+    }
+    var getnum = get();
+    getnum();
+    getnum();
+
+    function Students(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    Students.prototype.intro = function () {
+      console.log(`我叫${this.name},今年${this.age}岁了`);
+    }
+    var lilei = new Students("李雷", "18");
+    var chenfeng = new Students("陈凤", "22");
+    lilei.intro();
+    console.log(chenfeng);
+    console.log(lilei.intro == chenfeng.intro);
+    console.log(Students.prototype.intro == lilei.__pro__);
+    console.log(lilei.__pro__ == chenfeng.__pro__);
+  </script>
+</body>
+
+</html>

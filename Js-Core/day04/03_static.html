@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN-->
+  <div>
+  </div>
+  <script>
+    // 创建函数
+    function Products(pid, pname, price) {
+      this.pid = pid;
+      this.pname = pname;
+      this.price = price;
+    }
+    //创建一个Products的原型对象save函数 ,与Products同级
+    Products.prototype.save = function () {
+      console.log(`保存${this.pid}到数据库里去`);
+    }
+    var p1 = new Products(001, "外套", 1088);
+    var p2 = new Products(002, "鞋子", 998);
+    //调用save函数
+    p1.save();
+    p2.save();
+    // 创建一个Products的静态方法 searchById
+    Products.searchById = function (id) {
+      console.log(`Id为${id}的商品的信息如下`);
+      return new Products(id, "外套", 1088);
+    }
+    //调用searchById静态方法
+    var res = Products.searchById(001);
+    console.log(res);
+  </script>
+</body>
+
+</html>
