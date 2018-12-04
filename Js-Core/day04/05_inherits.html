@@ -1,41 +1,57 @@
 <!doctype html>
 <html lang="zh-CN">
+
 <head>
   <title>Title</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <style></style>
 </head>
+
 <body>
   <!--author:LiuHai -->
   <!--github:https://github.com/SkyrinCHN-->
   <div>
-  
+
   </div>
   <script>
     "use strict"
-    function Enemy(fname,speed) {
+    // 父函数
+    function Enemy(fname, speed) {
       this.fname = fname;
       this.speed = speed;
-      }
-    Enemy.prototype.fly = function () {  
+    }
+    Enemy.prototype.fly = function () {
       console.log(`${this.fname}以${this.speed}的速度飞行`);
     }
-    function plane(fname,speed,score){
-       Enemy.call(this,fname,speed);
+
+    function plane(fname, speed, score) {
+      Enemy.call(this, fname, speed);
       this.score = score;
     }
-    plane.prototype.getScore=function(){
+
+    function Bee(fname, speed, award) {
+      Enemy.call(this, fname, speed);
+      this.award = award;
+
+    }
+    Bee.prototype.getAward = function () {
+      console.log(`击落${this.fname}可以获得${this.award}奖励`)
+    }
+    plane.prototype.getScore = function () {
       console.log(`击落${this.fname}得${this.score}分`);
     }
-    Object.setPrototypeOf(plane.prototype,Enemy.prototype);
-    var j20 = new plane("j20",2000,10);
-    var f22 = new Enemy("f22",2000);
+    Object.setPrototypeOf(Bee.prototype, Enemy.prototype);
+    Object.setPrototypeOf(plane.prototype, Enemy.prototype);
+    var j20 = new plane("j20", 2000, 10);
+    var biger = new Bee("小蜜蜂", 1500, "一条命");
+    biger.getAward();
+    biger.fly();
     j20.getScore();
     j20.fly();
     console.log(j20);
-    console.log(f22);
-    f22.fly();
+    console.log(biger);
   </script>
 </body>
+
 </html>
