@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>冻结对象</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    "use strict"
+    var pool = {
+      ip:"192.168.0.101",
+      port:3306,
+      db:"xz",
+      user:"root",
+      pwd:""
+    };
+    Object.freeze(pool);
+    // pool.port=10000;
+    // delete pool.port;
+    // pool.name = "我了个去";
+    console.log(pool);
+  </script>
+</body>
+</html>

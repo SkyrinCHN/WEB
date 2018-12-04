@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    function calc(base, jiangjin1, jiangjin2) {
+      document.write(`${this.name} ${this.age}岁 总工资为${base+jiangjin1+jiangjin2}<br>`)
+    }
+    var chenlei = {
+      name: "程磊",
+      age: 24
+    };
+    var chenfeng = {
+      name: "陈凤",
+      age: 28
+    };
+    calc.call(chenlei, 5000, 3000, 2000);
+    calc.call(chenfeng, 1000, 1500, 1000);
+    var arr = [5000, 3000, 3000];
+    calc.apply(chenlei, arr);
+    // bind 复制一个相同的新函数,并传实参进去
+    var tchenlei = calc.bind(chenlei, 5000);
+    tchenlei(10000, 20000);
+
+    var f1 = function () {
+      document.write(`Welcome ${this.age}<br>`)
+    };
+    setInterval(f1.bind(chenlei), 1800);
+    setInterval(f1.bind(chenfeng), 1500);
+  </script>
+</body>
+
+</html>

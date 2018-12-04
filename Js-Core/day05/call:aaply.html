@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+  function calc(base,jiangjin1,jiangjin2){
+    document.write(`${this.name}的总工资为${base+jiangjin1+jiangjin2}<br>`)
+  }
+  var chenlei = {name:"程磊"};
+  var chenfeng ={name:"陈凤"};
+  calc.call(chenlei,5000,3000,2000);
+  calc.call(chenfeng,1000,1500,1000);
+  var arr=[5000,3000,3000];
+  calc.apply(chenlei,arr);
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    "use strict"
+
+    function Info(name, id, age, gender, salary) {
+      Object.defineProperties(this, {
+        name: {
+          value: name,
+          writable: false,
+          enumerable: true,
+          configurable: false
+        },
+        id: {
+          value: id,
+          writable: false,
+          enumerable: true,
+          configurable: false
+        },
+        _age: {
+          writable: true,
+          enumerable: false,
+          configurable: false
+        },
+        _gender: {
+          writable: true,
+          enumerable: false,
+          configurable: false
+        },
+        salary: {
+          value: salary,
+          writable: true,
+          enumerable: false,
+          configurable: false
+        }
+      })
+      this.age = age;
+      this.gender = gender;
+      // 禁止增加new Info的新属性
+      Object.preventExtensions(this);
+      //禁止删除new Info的属性
+      Object.seal(this);
+    }
+    Object.defineProperty(Info.prototype, "age", {
+      get: function () {
+        return this._age;
+      },
+      set: function (value) {
+        if (value >= 18 && value <= 65) {
+          this._age = value;
+        } else {
+          throw new Error(`年龄${value}, 不符合标准!
+                          标准为18-65之间`);
+        }
+      },
+      enumerable: true,
+      configurable: false
+    })
+    Object.defineProperty(Info.prototype, "gender", {
+      get: function () {
+        return this._gender
+      },
+      set: function (value) {
+        if (value == 1 || value == 0) {
+          this._gender = value;
+        } else {
+          throw new Error(`性别${value},无效 只能为0 1 `)
+        }
+      },
+      enumerable: true,
+      configurable: false
+    })
+    var wife = new Info("小艺", 1001, 28, 0, 50000)
+    // delete wife.name;
+    // wife.favor = "买买买";
+    for (var key in wife) {
+      document.write(`${key}: ${wife[key]}<br>`);
+    }
+  </script>
+</body>
+
+</html>

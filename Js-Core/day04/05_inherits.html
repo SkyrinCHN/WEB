@@ -33,7 +33,6 @@
     function Bee(fname, speed, award) {
       Enemy.call(this, fname, speed);
       this.award = award;
-
     }
     Bee.prototype.getAward = function () {
       console.log(`击落${this.fname}可以获得${this.award}奖励`)

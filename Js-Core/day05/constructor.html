@@ -14,58 +14,61 @@
   <script>
     "use strict"
 
-    function Emp(eid, ename, age, salary) {
+    function Emp(eid, ename, age, salary, gender) {
+      this.gender = gender;
       Object.defineProperties(this, {
         //所有为false的开关都可以省略,因为默认就是false
         eid: {
           value: eid,
           writable: false,
-          enumerable: true,
-          configurable: false
+          enumerable: true
         },
         ename: {
           value: ename,
           writable: true,
           enumerable: true,
-          configurable: false
         },
         salary: {
           value: salary,
           writable: true,
-          enumerable: false,
-          configurable: false
+          enumerable: false
         },
         _age: {
           writable: true,
-          enumerable: false,
-          configurable: false
+          enumerable: false
         },
       });
-      this.age = age ;
+      this.age = age;
+      // 设置obj对象,禁止扩展新属性,不是Emp对象,而是new Emp 的对象
+      Object.preventExtensions(this);
+      //设置obj对象,禁止删除属性,不是Emp对象,而是new Emp 的对象
+      Object.seal(this);
     }
-    Object.defineProperty(Emp.prototype,"age",{
-          get:function(){return this._age},
-          set:function(value){
-            if(value>=18 && value <=65){
-              this._age=value;
-            }else{
-              throw new Error(`年龄${value}岁不符合规定!合法年龄18-65岁`);
-            }
-          },
-          enumerable:true,
-          configurable:false
-        })
-    var lilei = new Emp(1001, "李雷", -3, 15000);
-    var zhangming = new Emp(1002, "张明", 25, 12000);
-    // console.log(lilei);
-    // console.log(zhangming);
+    Object.defineProperty(Emp.prototype, "age", {
+      get: function () {
+        return this._age
+      },
+      set: function (value) {
+        if (value >= 18 && value <= 65) {
+          this._age = value;
+        } else {
+          throw new Error(`年龄${value}岁不符合规定!合法年龄18-65岁`);
+        }
+      },
+      enumerable: true,
+      configurable: false
+    })
+    var lilei = new Emp(1001, "李雷", 35, 15000, 0);
+    // var zhangming = new Emp(1002, "张明", 25, 12000, 1);
+    // delete lilei.gender;
     for (var key in lilei) {
       console.log(`${key}: ${lilei[key]}`);
     }
-    for (var key in zhangming) {
-      console.log(`${key}: ${zhangming[key]}`);
-    }
+    // for (var key in zhangming) {
+    //   console.log(`${key}: ${zhangming[key]}`);
+    // }
     // console.log(zhangming.salary);
   </script>
 </body>
+
 </html>
