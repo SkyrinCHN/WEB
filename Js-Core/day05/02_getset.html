@@ -25,16 +25,17 @@
         configurable: false
       },
       age: {
-        get() {
+        get: function () {
           return this._age;
         },
-        set(value) {
+        set: function (value) {
           if (value >= 18 && value <= 65) {
             this._age = value;
           } else {
             throw new Error("年龄不在符合范围内!")
           }
         },
+        // 让age可以遍历到
         enumerable: true,
         configurable: false
       }

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN -->
+  <script>
+    "use strict"
+
+    function Emp(eid, ename, age, salary) {
+      Object.defineProperties(this, {
+        //所有为false的开关都可以省略,因为默认就是false
+        eid: {
+          value: eid,
+          writable: false,
+          enumerable: true,
+          configurable: false
+        },
+        ename: {
+          value: ename,
+          writable: true,
+          enumerable: true,
+          configurable: false
+        },
+        salary: {
+          value: salary,
+          writable: true,
+          enumerable: false,
+          configurable: false
+        },
+        _age: {
+          writable: true,
+          enumerable: false,
+          configurable: false
+        },
+      });
+      this.age = age ;
+    }
+    Object.defineProperty(Emp.prototype,"age",{
+          get:function(){return this._age},
+          set:function(value){
+            if(value>=18 && value <=65){
+              this._age=value;
+            }else{
+              throw new Error(`年龄${value}岁不符合规定!合法年龄18-65岁`);
+            }
+          },
+          enumerable:true,
+          configurable:false
+        })
+    var lilei = new Emp(1001, "李雷", -3, 15000);
+    var zhangming = new Emp(1002, "张明", 25, 12000);
+    // console.log(lilei);
+    // console.log(zhangming);
+    for (var key in lilei) {
+      console.log(`${key}: ${lilei[key]}`);
+    }
+    for (var key in zhangming) {
+      console.log(`${key}: ${zhangming[key]}`);
+    }
+    // console.log(zhangming.salary);
+  </script>
+</body>
+</html>
