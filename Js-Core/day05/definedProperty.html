@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN-->
+  <div>
+  </div>
+  <script>
+    "use strict"
+    var student = {
+      name: "lilei",
+      age: 22,
+      eid: 1001,
+      salary: 15000
+    }
+    // Object.defineProperty(student, "eid", {
+    //   writable: false,
+    //   configurable: false
+    // })
+    // // configurable 关上过后就打不开了(不可逆)
+    // // Object.defineProperty(student, "eid", {
+    // //   configurable: true,
+    // //   writable: true
+    // // })
+    // // student.eid = 1002;
+    // Object.defineProperty(student,"name",{
+    //   configurable:false
+    // })
+    // Object.defineProperty(student,"salary",{
+    //   enumerable:false
+    // })
+    // delete student.name;
+    Object.defineProperties(student,{
+      eid:{writable:false,configurable:false},
+      name:{writable:false,configurable:false},
+      salary:{enumerable:false}
+    });
+    for (var key in student) {
+      console.log(`${key}:${student[key]}`);
+    }
+    // console.log(student.salary);
+  </script>
+</body>
+</html>
