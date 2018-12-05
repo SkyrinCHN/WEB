@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    var t= 0;
+    function pool(){
+      console.log("连接数据库耗时0.5S");
+      t+=0.5;
+    }
+    function query(){
+      console.log("查询数据库耗时1.0S");
+      t+=1.0;
+      var err=true;
+      if(err==false){
+        let t = new Date();
+        console.log("err"+t.toLocaleString());
+      }
+      // console.log(t);
+    }
+    pool();
+    query();
+    console.log(t+"s");
+
+  </script>
+</body>
+</html>
