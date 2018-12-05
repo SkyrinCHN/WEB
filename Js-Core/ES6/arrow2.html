@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    var lilei={
+      name:"lilei",
+      friends:["jack","rose","tom","jerry"],
+      intro:function(){//这个不能写成箭头,不然this就变成window了
+        //this-->lilei
+        this.friends.forEach(
+          (fname)=>{//this-->window 变成箭头函数 this-->lilei 没了function 作用域成同一级了
+            console.log(`${this.name}认识${fname}`)
+        })
+      }
+    }
+    lilei.intro();
+  </script>
+</body>
+</html>

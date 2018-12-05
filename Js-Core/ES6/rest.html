@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    function salary(ename,...money){
+      let sum = money.reduce(function(prev,elem){
+        return prev+elem;
+      },0)
+      console.log(`${ename}的工资为${sum}`)
+    }
+    salary("admin",5000,3333,4884);
+  </script>
+</body>
+</html>

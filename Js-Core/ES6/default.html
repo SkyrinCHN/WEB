@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    let arr = [1,2,3,4,5,5,4,3,2,1];
+    function indexof(arr,value,starti){
+      if(starti==undefined){
+        starti = 0;
+      };
+      for(let i =starti; i<arr.length;i++){
+        if(arr[i] == value)
+          return i ;
+        } 
+        return -1;
+      }
+    let res = indexof(arr,3);
+    console.log(res);
+  </script>
+</body>
+</html>
