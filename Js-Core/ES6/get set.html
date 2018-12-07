@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    class Emp {
+      constructor(eid,age) {
+        this.eid = eid;
+        Object.defineProperties(this, {
+          _age: {
+            writable: true
+          }
+        })
+        this.age = age;
+      }
+      get age() {
+        return this._age
+      }
+      set age(value) {
+        console.log(value);
+        if (value >= 18 && value <= 65) {
+          this._age = value;
+        } else {
+          throw new Error(`年龄${value}超出范围`);
+        }
+      }
+    }
+    var admin = new Emp(1001,55);
+  </script>
+</body>
+
+</html>

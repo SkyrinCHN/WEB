@@ -1,21 +1,54 @@
 <!doctype html>
 <html lang="zh-CN">
+
 <head>
   <title>Title</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <style></style>
 </head>
+
 <body>
   <!--author:LiuHai -->
   <!--github:https://github.com/SkyrinCHN	-->
   <script>
-    var now =[2018,12,5];
-    var [year,month,date]=now
-    console.log(year,month,date);
-    var obj = {x:4234,y:231312,z:345345};
-    var {x,y,z}=obj;
-    console.log(x,z,y);
+    var now = [2018, 12, 5];
+    var [year, month, date] = now;
+    console.log(year, month, date);
+    var obj = {
+      x: 4234,
+      y: 231312,
+      z: 345345
+    };
+    var {
+      x,
+      y,
+      z
+    } = obj;
+    console.log(x, z, y);
+    // 解构参数
+    function ajax({url,type,data,datatype}) {
+      //函数体
+      console.log(`向${url}
+      发送${type}请求`);
+      if (data != undefined) {
+        console.log(`携带的参数为${data}`);
+      }
+      if (datatype != undefined) {
+        console.log(`转化为JSON对象`);
+      }
+    }
+    // ajax(
+    //   "http://localhost:3000/index.html",
+    //   "post",
+    //   "uname=liuhai&upwd=12456"
+    // )
+    ajax({
+      "url": "http://localhost:3000/index.html",
+      "type": "post",
+      "datatype": "JSON"
+    })
   </script>
 </body>
+
 </html>

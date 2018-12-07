@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    function A() {
+      return new Promise((open, err) => {
+        console.log("a开始起跑");
+        setTimeout(() => {
+          if (Math.random() < 0.8) {
+            console.log("A到达终点了");
+            open();
+          } else {
+            err("A出毛病了")
+          }
+        }, 4000);
+      })
+    }
+
+    function B() {
+      return new Promise( (open, err)=> {
+        console.log("B开始起跑");
+        setTimeout(() => {
+          if (Math.random() < 0.8) {
+            console.log("B到达终点了");
+            open();
+          } else {
+            err("B出毛病了")
+          }
+        }, 4000);
+      })
+    }
+
+    function C() {
+      return new Promise( (open)=> {
+        console.log("C开始起跑");
+        setTimeout(() => {
+          console.log("C到达终点了");
+          open();
+        }, 4000);
+      })
+    }
+    A().then(B).then(C).catch(msg => {
+      console.log(msg);
+    })
+  </script>
+</body>
+
+</html>

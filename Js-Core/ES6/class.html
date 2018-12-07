@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    "use strict"
+    // 父函数
+    class Enemy {
+      constructor(fname, speed) {
+        this.fname = fname;
+        this.speed = speed;
+      }
+      Fly() {
+        console.log(`${this.fname}以${this.speed}的速度飞行...`)
+      }
+    }
+    class Plane extends Enemy{
+      constructor(fname, speed, score) {
+        super(fname,speed);
+        this.score = score;
+      }
+      getScore() {
+        console.log(`击落${this.fname}得${this.score}分`);
+      }
+    }
+    class Bee extends Enemy {
+      constructor(fname, speed, award) {
+        super(fname,speed);
+        this.award = award;
+      }
+      getAward() {
+        console.log(`击落${this.fname}可以获得${this.award}奖励`)
+      }
+    }
+    var j20 = new Plane("j20", 2000, 10);
+    var biger = new Bee("小蜜蜂", 1500, "一条命");
+    biger.getAward();
+    biger.Fly();
+    j20.getScore();
+    j20.Fly();
+    console.log(j20);
+    console.log(biger);
+  </script>
+</body>
+
+</html>

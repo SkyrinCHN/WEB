@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    function a(next) {
+      console.log("a起跑啦");
+      setTimeout(function () {
+        console.log("a到达终点了");
+        next(); //next()代表要调用的的函数
+      }, 4000)
+    }
+
+    function b(next) {
+      console.log("b起跑了");
+      setTimeout(function () {
+        console.log("b到达终点了")
+        next();
+      }, 4000);
+    }
+
+    function c() {
+      console.log("c起跑了");
+      setTimeout(function () {
+        console.log("c到达终点了");
+      }, 4000);
+    }
+
+    a(function () {//a函数调用b函数
+        b(function(){//b函数调用c函数
+            c();
+          }
+        ); 
+      });
+  </script>
+</body>
+
+</html>

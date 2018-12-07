@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script>
+    class Product{
+      constructor(eid,price) {
+        this.eid = eid;
+        this.price = price;
+        console.log(`编号${this.eid}的商品价格为${this.price}`);
+      }
+      sell(){
+        console.log(`出售${this.eid}号商品,卖价${this.price}`)
+      }
+      static getById(id){
+        console.log(`按照${id}去查找商品`);
+      }
+    }
+    Product.getById(5);
+    var goods1 = new Product(1001,50);
+    goods1.sell();
+    console.log(`eid:${goods1.eid}`);
+  </script>
+</body>
+</html>
