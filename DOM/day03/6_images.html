@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    #slider {
+      width: 200px;
+      height: 150px;
+      position: relative;
+      border: 1px solid #555;
+    }
+
+    #slider>img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: all .5s linear;
+    }
+
+    #slider>img.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="slider">
+    <img src="images/1.jpg" class="show" />
+    <img src="images/2.jpg" />
+    <img src="images/3.jpg" />
+    <img src="images/4.jpg" />
+  </div>
+  <script>
+    function timer() {
+      var show = document.querySelector("#slider>img.show");
+      show.className = "";
+      if (show.nextElementSibling != null) {
+        show.nextElementSibling.className = "show";
+      } else {
+        show.parentNode.children[0].className = "show";
+      }
+    }
+    var n = setInterval(timer, 3000);
+    //鼠标悬停停止计时器
+    var div = document.getElementById("slider");
+    div.onmouseover = function () {
+      clearInterval(n);
+    }
+    div.onmouseout = function () {
+      n = setInterval(timer, 3000);
+    }
+  //鼠标移开计时器启动
+  </script>
+</body>
+
+</html>

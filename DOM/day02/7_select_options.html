@@ -1,41 +1,88 @@
 ﻿<!DOCTYPE HTML>
 <html>
+
 <head>
-<title>二级联动列表</title>
-<meta charset="utf-8" />
-<style>
-	.hide{ display: none; }
-</style>
+  <title>二级联动列表</title>
+  <meta charset="utf-8" />
+  <style>
+    .hide {
+      display: none;
+    }
+  </style>
 
 
 </head>
+
 <body>
-	<select name="provs">
-		<option>—请选择—</option><!--0-->
-		<option>北京市</option><!--1-->
-		<option>天津市</option>
-		<option>河北省</option>
-	</select>
-	
-	<select name="cities" class="hide">
-	</select>
+  <select name="provs">
+    <option>—请选择—</option>
+    <!--0-->
+    <option>北京市</option>
+    <!--1-->
+    <option>天津市</option>
+    <option>河北省</option>
+  </select>
+
+  <select name="cities" class="hide">
+  </select>
   <script>
-	/*实现“省”和“市”的级联下拉列表*/
-	var cities=[
-      [{"name":'东城区',"value":101},
-       {"name":'西城区',"value":102},
-       {"name":'海淀区',"value":103},
-       {"name":'朝阳区',"value":104}],
-      [{"name":'河东区',"value":201},
-       {"name":'河西区',"value":202},
-       {"name":'南开区',"value":303}],
-      [{"name":'石家庄市',"value":301},
-       {"name":'廊坊市',"value":302},
-       {"name":'保定市',"value":303},
-       {"name":'唐山市',"value":304},
-       {"name":'秦皇岛市',"value":304}]
-	];
-	
-</script>
+    /*实现“省”和“市”的级联下拉列表*/
+    var cities = [
+      [{ "name": '东城区', "value": 101 },
+      { "name": '西城区', "value": 102 },
+      { "name": '海淀区', "value": 103 },
+      { "name": '朝阳区', "value": 104 }],
+      [{ "name": '河东区', "value": 201 },
+      { "name": '河西区', "value": 202 },
+      { "name": '南开区', "value": 303 }],
+      [{ "name": '石家庄市', "value": 301 },
+      { "name": '廊坊市', "value": 302 },
+      { "name": '保定市', "value": 303 },
+      { "name": '唐山市', "value": 304 },
+      { "name": '秦皇岛市', "value": 304 }]
+    ];
+    //创建一个文档片段
+    var frag = document.createDocumentFragment();
+    //查找触发事件的元素
+    var selectProvs = document.getElementsByName("provs")[0];
+    //绑定事件,这是下拉框,当选中项发生改变时
+    selectProvs.onchange = function () {
+      //获得当前选中项在select中的选中项
+      var selectProvs = this;
+      //得到下拉选项框 选中的下标
+      var i = selectProvs.selectedIndex;
+      var selectCities = document.getElementsByName("cities")[0];
+      if (i > 0) {
+        //去除第一个"请选择", 不然下标是错位的
+        i--;
+        //获得现在省份i对应的城市i的列表 现在这样是对应的
+        var cts = cities[i];
+        //添加新内容之前把现有的城市列表清空
+        selectCities.innerHTML="";
+        // var opt = document.createElement("option");
+        // opt.innerHTML = "=请选择=";
+        // frag.appendChild(opt);
+        frag.appendChild(new Option("-请选择-"));
+        for (var city of cts) {
+          // console.log(city);
+          // //每遍历一个城市,就增加一个选项(option)
+          // var opt = document.createElement("option");
+          // //然后把城市名和value值放进去
+          // opt.innerHTML = city.name;
+          // opt.value = city.value;
+          //再添加到option里边
+          frag.appendChild(new Option(city.name,city.value));
+        }
+        //把城市下拉选的隐藏属性去掉,让用户可以选择城市
+        selectCities.className = "";
+        //一次性把文档片段添加到城市列表中
+        selectCities.appendChild(frag);
+      }else{
+        //没选择省,就把城市列表隐藏起来
+        selectCities.className="hide";
+      }
+    }
+  </script>
 </body>
+
 </html>

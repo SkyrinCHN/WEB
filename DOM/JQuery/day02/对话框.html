@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.alert{
+			border:1px solid #a33;
+			color:#f00;
+			background:pink;
+			padding:10px;
+		}
+		.alert>.close{
+			float:right;
+			font-weight:bold;
+			opacity:.5;
+			cursor:pointer;
+		}
+		.alert>.close:hover{opacity:1}
+		.fade{ /*定义淡入淡出动画的初始状态,常驻元素*/
+      width: 0px;height: 0px;
+      position: fixed;
+      top: 50%;left: 50%;
+      margin-top: -200px;
+      margin-left: -150px;
+      opacity: 0;
+      transition: all .2s linear;
+      overflow: hidden;
+		}
+		.in{ /*定义淡入淡出动画的结束状态*/
+			width: 300px;height: 100px;
+      position: fixed;
+      top: 50%;left: 50%;
+      margin-top: -200px;
+      margin-left: -150px;
+      opacity: 1;
+		}
+    div{
+      border-radius: 5px;
+      text-align: center;
+    }
+	</style>
+ </head>
+ <body>
+	<button id="btn">click me!</button>
+  <div class="alert fade ">
+		<span class="close">×</span>
+		<p>您的浏览器版本太低!</p>
+	</div>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+	  $("#btn").click(function(){
+      $(".alert").addClass("in");
+    })
+    $(".close").click(function(){
+      $(this).parent().removeClass("in");
+    })
+	</script>
+ </body>
+</html>

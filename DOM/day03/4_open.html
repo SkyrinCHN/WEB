@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>打开新链接方式总结</title>
+  <script>
+    /*打开新链接方式总结：
+1. 在当前窗口打开，可后退
+2. 在当前窗口打开，不可后退
+3. 在新窗口打开，可打开多个
+4. 在新窗口打开，只能打开一个
+*/
+    function open1() {
+      open("http://tmooc.cn", "_self")
+    }
+    function open2() {
+      open("http://www.baidu.com", "_blank")
+    } 
+    function open3() {
+      open("http://www.baidu.com", "tmooc")
+    } 
+    function open4() {
+      location.replace("http://www.baidu.com")
+    }
+    console.log(window.history);
+  </script>
+</head>
+
+<body>
+  <h2>打开新页面</h2>
+  <a href="http://tmooc.cn" target="_self">HTMLTmooc</a>
+  <a href="javascript:open1()">JS打开网站</a>
+  <hr>
+  <h2>在新窗口打开,可以打开多个</h2>
+  <a href="http://www.baidu.com" target="_blank">HTML新页面打开</a>
+  <a href="javascript:open2()">JS新页面打开</a>
+  <hr>
+  <h2>在新窗口打开,只能打开一个</h2>
+  <a href="http://www.baidu.com" target="baidu">HTML新页面打开</a>
+  <a href="javascript:open2()">JS新页面打开</a>
+  <hr>
+  <h2>打开新页面,禁止后退</h2>
+  <a href="javascript:open4()">JS打开页面</a>
+</body>
+
+</html>

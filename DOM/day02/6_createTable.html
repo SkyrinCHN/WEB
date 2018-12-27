@@ -19,7 +19,55 @@
     {"ename":"John", "salary":13000, "age":28},
     {"ename":"Mary", "salary":12000, "age":25}
   ];
-	
+  //创建一个table
+  var table = document.createElement("table");
+  // //创建一个thead,添加到table后边
+  // var  thead = document.createElement("thead");
+  // table.appendChild(thead);
+  var thead = table.createTHead();
+  //创建一个tr 添加到thead后边
+  var tr = document.createElement("tr");
+  thead.appendChild(tr);
+  //得到表头的属性名 json[0,1,2]都可以,但是必须要有值,不能为undefined
+  var emp = json[0];
+  // console.log(emp);
+  //遍历emp,把属性名添加到表头里
+  for(var key in emp ){
+    ////创建一个th 往里边添加属性名
+    // var th = document.createElement("th");
+    // th.innerHTML=key;
+
+    //这是简写
+     tr.insertCell().innerHTML = key;
+  
+  }
+  tr.insertCell().innerHTML="删除";
+  //创建一个tbody 添加到table里,不是thead里
+  // var tbody = document.createElement("tbody");
+  // table.appendChild(tbody);
+  var tbody = table.createTBody();
+  
+  //遍历json里的对象,根据下标. 遍历完一个,添加一个tr
+  for( var i =0 ; i <json.length;i++){
+    var tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    //遍历每个对象的属性,把属性值添加到列中, 每添加一个值,增加一个td
+    var info = json[i];
+    for(var key in info){
+      // var td = document.createElement("td");
+      // td.innerHTML = info[key];
+      // tr.appendChild(td); 
+
+      //这是简写
+      tr.insertCell().innerHTML= info[key];
+    }
+    //给每一行都添加一个删除按钮
+    tr.insertCell().innerHTML="<button>X</button>";
+
+  }
+    //把table添加到id为data的后边
+    //最后把table添加到DOM Tree里,这样一次重排重绘就可以了,而不是放在最前边,这样会进行很多次重排重绘,提升效率
+    document.getElementById("data").appendChild(table);
   </script>
 </body>
 </html>

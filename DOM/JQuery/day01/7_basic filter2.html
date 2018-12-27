@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>...</title>
+  <style>
+    ul>li {
+      float: left;
+      border: 1px solid black;
+      padding: 10px 20px;
+
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul>li+li {
+      border-left: 0;
+    }
+
+    /*
+  ul>li:first-child{
+    border-radius: 4px 0 0 4px;
+  }
+  ul>li:last-child{
+    border-radius: 0 4px 4px 0;
+  } */
+    ul>li:nth-child(2) {
+      line-height: 28px;
+    }
+
+    table {
+      width: 400px;
+      border-collapse: collapse;
+    }
+
+    table>thead>tr>th {
+      border-bottom: 2px solid black;
+    }
+
+    table>tbody>tr>td {
+      text-align: center;
+    }
+
+    tbody>tr+tr {
+      border-top: 1px solid #555;
+    }
+
+    table>tbody>tr:nth-child(2n) {
+      background: pink;
+    }
+  </style>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script>
+    $("ul>li:gt(0)").css("border-left", 0);
+    $("ul>li:first-child").css("border-radius", "4px 0 0 4px ");
+    $("ul>li:last-child").css("border-radius", " 0 4px 4px 0 ");
+  </script>
+  <script>
+
+  </script>
+</head>
+
+<body>
+  <h1>实现按钮组效果</h1>
+  <ul>
+    <li>|<</li> 
+    <li>▶</li>
+    <li>||</li>
+    <li>>|</li>
+  </ul>
+  <div style="clear:both"></div>
+
+  <h1>实现表格隔行变色效果</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>姓</th>
+        <th>名</th>
+        <th>称呼</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>陈</td>
+        <td>凤</td>
+        <td>@chen</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>陈</td>
+        <td>凤</td>
+        <td>@chen</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>陈</td>
+        <td>凤</td>
+        <td>@chen</td>
+      </tr>
+    </tbody>
+
+
+  </table>
+  <script>
+
+  </script>
+</body>
+
+</html>

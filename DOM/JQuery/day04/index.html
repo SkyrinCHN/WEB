@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <button id="btn">获取天气</button>
+  <script src="jquery-1.11.3.js"></script>
+  <script>
+    $("#btn").click(function(){
+       $.ajax({
+      url:"http://176.226.101.58:8000",
+      type:"get",
+      dataType:"jsonp",
+      success:function(res){
+        alert(res);
+        // document.write(res);
+      }
+    })
+    })
+   
+  </script>
+  <!-- <script src="http://176.226.101.61:8000/"></script> -->
+  <!-- <script>
+    $("#btn").click(function () {
+      // var script =document.createElement("script");
+      // script.src="http://localhost:3001?callback=just";
+      // document.body.appendChild(script);
+      // $("<script src='http://localhost:3001?callback=just'>").appendTo("body");
+
+    })
+
+    function just(res) { 
+      alert(res);
+      // document.body.removeChild(
+      //   document.body.lastElementChild
+      // )
+      $("body").children(":last") .remove();
+    }
+  </script> -->
+  <!-- <script src="http://localhost:3001?callback=just"></script> -->
+</body>
+
+</html>

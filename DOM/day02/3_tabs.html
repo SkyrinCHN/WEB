@@ -11,12 +11,12 @@
 	<h2>实现多标签页效果</h2>
   <div class="tabs">
     <ul id="tab">
-      <li><a href="#content1">10元套餐</a></li>
-      <li><a href="#content2">30元套餐</a></li>
-      <li><a href="#content3">50元包月</a></li>
+      <li><a href="javascript:;" data-toggle="tab" data-target="content1">10元套餐</a></li>
+      <li><a href="javascript:;" data-toggle="tab" data-target="content2">30元套餐</a></li>
+      <li><a href="javascript:;" data-toggle="tab" data-target="content3">50元包月</a></li>
     </ul>
     <div id="container">
-      <div id="content1">
+      <div id="content1" style="z-index: 10;">
         10元套餐详情：<br />&nbsp;每月套餐内拨打100分钟，超出部分2毛/分钟
       </div>
       <div id="content2">
@@ -27,6 +27,28 @@
       </div>
     </div>
   </div>
-  <script src="js/3.js"></script>
+  <script>
+    //查找触发事件的元素:data-toggle=tab元素
+    var tabs = document.querySelectorAll("[data-toggle=tab]");
+    console.log(tabs);
+    //绑定事件处理函数
+   for(var tab of tabs){
+     tab.onclick=function(){
+       console.log("你赢了!");
+        //查找要修改的元素
+        //查看tab对应的div
+     var id =this.getAttribute("data-target");
+     var wantDiv = document.getElementById(id);
+     //查看现在包含style属性的div
+     var nowDiv = document.querySelector("[style]");
+     console.log(nowDiv);
+    //修改元素
+    //去掉之前元素的style属性
+    nowDiv.removeAttribute("style");
+    //给点击要跳转的div添加 z-index:10属性
+    wantDiv.style.zIndex = 10;
+     }
+   }
+  </script>
 </body>
 </html>

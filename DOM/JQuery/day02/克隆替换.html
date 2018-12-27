@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<h1>替换节点</h1>
+
+<div id="chosen">
+  <img src="img/p0.png">
+</div>
+<hr/>
+<div id="list">
+  <img src="img/p3.png">
+  <img src="img/p4.png">
+  <img src="img/p5.png">
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+  //利用冒泡将事件统一绑定在IMG的父元素上
+    // $("#list").click(function (e) {
+    //   //如果点击的是图片
+    //  var $img = $(e.target);
+    //   if($img.is("img")){
+    //     //把图片克隆一份替换需要替换到的位置
+    //     $img.clone().replaceAll("#chosen>img")
+    //   }
+      // })
+      $("#list").on("click","img",function(){
+        $(this).clone().replaceAll("#chosen>img");
+      })
+</script>
+</body>
+</html>
