@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    #app{
+      height: 160px;
+    }
+    #app img{
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/vue.js"></script>
+  <script src="js/index.js"></script>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN		-->
+  <div id="app">
+    <mt-swipe :auto="2000" >
+      <mt-swipe-item v-for="item in list"><img :src="item"></mt-swipe-item>
+    </mt-swipe>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return{
+          list:["img/banner1.png","img/banner2.png","img/banner3.png","img/banner4.png"]
+        }
+      },
+      // methods: {
+      //   handchange(index) {
+      //     auto:"3000",
+      //     speed:"300",
+      //   },
+      // }
+    })
+  </script>
+</body>
+
+</html>

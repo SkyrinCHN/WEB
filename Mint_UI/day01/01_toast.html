@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+  .mytoast{
+    border: 1px solid wheat;
+    font-size: 15px;
+    background-color: rgb(171, 177, 184) !important;
+    color: black;
+  }
+  </style>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/vue.js"></script>
+  <script src="js/index.js"></script>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN		-->
+  <div id="app">
+
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return {}
+      },
+      methods: {},
+      created() {
+      var mytoast=  this.$toast({
+          message:"数据正在加载", //消息
+          position:"top",//位置
+          duration:-1,//持续时间(毫秒)
+          className:"mytoast"//自定义样式名
+        });
+        setInterval(function(){
+          mytoast.close()
+        },3000) //3秒后自动关闭提示框
+      }
+    })
+  </script>
+</body>
+
+</html>
