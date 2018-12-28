@@ -33,30 +33,31 @@ app.get("/getImages", (req, res) => {
 app.get("/getNews", (req, res) => {
   //1.参数 pno页码 pagesize每页大小
   var pno = req.query.pno;
-  var pagesize = req.query.pagesize;
+  console.log(req.query);
+  console.log(pno);
+  var pageSize = req.query.pageSize;
   //验证pno pagesize 正则表达式
+  if (!pno) pno = 1;
+  if (!pageSize) pageSize = 7;
   var reg = /^[0-9]{1,}$/
   if (!reg.test(pno)) {
     res.send({ code:-1, msg: "页码格式不正确" });
     return;
   } 
-  if (!reg.test(pagesize)) {
+  if (!reg.test(pageSize)) {
     res.send({ code: -2, msg: "每页大小格式不正确" });
     return;
   }
   //没值 给默认值1
-  if (!pno) pno = 1;
-  if (!pagesize) pagesize = 7;
+  
   //2.创建sql语句 查询总页数
   var sql = "select count(id) as c from xz_news";
   var obj = { code: 1 };
   var progress = 0; //sql执行进度
-
-
   pool.query(sql, (err, result) => {
     if (err) throw err;
     // console.log(result[0].c);
-    var pageCount = Math.ceil(result[0].c / pagesize);
+    var pageCount = Math.ceil(result[0].c / pageSize);
     obj.pageCount = pageCount;
     progress += 50;
     if (progress == 100) {
@@ -64,14 +65,15 @@ app.get("/getNews", (req, res) => {
     }
   })
   //查询当前页内容
-  pagesize = parseInt(pagesize);
-  var offset = parseInt((pno - 1) * pagesize);
-  var sql1 = "select id,ctime,title,img_url,point from xz_news limit ?,?";
-  pool.query(sql1, [offset, pagesize], (err, result) => {
+  pageSize = parseInt(pageSize);
+  var offset = parseInt((pno - 1) * pageSize);
+  var sql1 = "select id,ctime,title,img_url,point,content from xz_news limit ?,?";
+  pool.query(sql1, [offset, pageSize], (err, result) => {
     if (err) throw err;
     // console.log(result);
     obj.data = result;
     progress += 50;
+    console.log(result);
     if (progress == 100) {
       res.send(obj);
     }

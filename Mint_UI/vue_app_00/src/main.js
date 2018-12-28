@@ -20,6 +20,26 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 //注册axios
 Vue.prototype.axios = axios;
+//创建一个日期格式的过滤器 2018-10-10 12:11:11
+Vue.filter("datetimeFilter", function (val) {
+  //val 当前的日期对象
+  //新建日期对象
+  var data = new Date(val);
+  var y = data.getFullYear();
+  var m = data.getMonth() + 1;
+  var d = data.getDate();
+  var h = data.getHours();
+  var min = data.getMinutes();
+  var s = data.getSeconds();
+  //拼接字符串
+  m < 10 && (m = "0" + m);
+  d < 10 && (d = "0" + d);
+  // console.log(typeof(y));
+  var year = y.toString().slice(2);
+  // console.log(typeof (year));
+  // console.log(year);
+  return `${year}-${m}-${d} ${h}:${min}`;
+})
 
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);
