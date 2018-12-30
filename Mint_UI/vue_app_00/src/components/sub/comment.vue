@@ -28,7 +28,7 @@ export default {
   },
   props: ["id"],
   created() {
-    console.log(this.id);
+    // console.log(this.id);
     this.getMore();
   },
   methods: {
@@ -77,15 +77,18 @@ export default {
 
 <style scoped>
 .comment div.cmt-list {
+  font-size: 10px;
   margin: 5px;
 }
 .comment div.cmt-list div.cmt-item {
   border: 1px solid #aaa;
   margin-top: 15px;
+  /* font-size: 10px; */
 }
 textarea {
   font-size: 13px;
   height: 150px;
   border-radius: 5px;
 }
+
 </style>
