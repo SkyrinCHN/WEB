@@ -14,7 +14,7 @@ import './lib/mui/css/mui.css'
 // 还需要加载图标字体文件
 import './lib/mui/css/icons-extra.css'
 //引入mint-ui组件库
-import { Header, Swipe, SwipeItem,Button } from "mint-ui";
+import { Header, Swipe, SwipeItem, Button } from "mint-ui";
 import axios from "axios";
 //修改配置信息 跨域访问 保存session
 axios.defaults.withCredentials = true;

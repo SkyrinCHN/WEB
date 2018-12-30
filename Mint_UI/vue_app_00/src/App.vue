@@ -2,7 +2,7 @@
  <div class="app-container">
    <!-- top -->
     <!-- 第一个: 顶部状态栏 小刘商店 -->
-    <mt-header class="myHeader" fixed title="小刘商店"></mt-header>
+    <mt-header class="myHeader" fixed title="买买买"></mt-header>
     <router-view></router-view>
     <!-- tabbar -->
     <div id="tabbar">

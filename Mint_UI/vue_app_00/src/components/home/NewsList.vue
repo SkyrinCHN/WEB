@@ -2,7 +2,7 @@
   <div id="NewsList">
     <ul class="mui-table-view mui-table-view-chevron">
       <li v-for="l in list" :key="l.id" class="mui-table-view-cell mui-media">
-        <a class="mui-navigate-right">
+        <router-link class="mui-navigate-right" :to="'/NewsInfo?id='+l.id">
           <img class="mui-media-object mui-pull-left" :src="l.img_url">
           <div class="mui-media-body">
             {{l.title}}
@@ -15,7 +15,7 @@
               <span class="point">{{l.point}}</span>
             </span>
           </p>
-        </a>
+        </router-link>
       </li>
     </ul>
     <mt-button size="large" type="danger" icon="more" @click="getNews()">加载更多</mt-button>
