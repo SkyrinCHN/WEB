@@ -6,16 +6,20 @@ import NewsList from "./components/home/NewsList.vue"
 import test01 from "./components/test/test01.vue"
 import test02 from "./components/test/test02.vue"
 import NewsInfo from "./components/home/NewsInfo.vue"
+import GoodsList from "./components/goods/GoodsList.vue"
+import GoodsInfo from "./components/goods/GoodsInfo.vue"
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/', component: HelloContainer },
+    { path: '/', redirect: "/home" },
     { path: "/home", component: Home },
     { path: "/NewsList", component: NewsList },
     { path: "/test01", component: test01 },
     { path: "/test02/:age", component: test02 },
     { path: "/NewsInfo", component: NewsInfo },
+    { path: "/GoodsList", component: GoodsList },
+    { path: "/GoodsInfo/:id", component:GoodsInfo},
   ]
 })

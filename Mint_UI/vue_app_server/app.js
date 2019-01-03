@@ -30,6 +30,39 @@ app.get("/getImages", (req, res) => {
   ];
   res.send(pics);
 })
+app.get("/getGoodsInfo", (req, res) => {
+  var pics = [{
+      id: 1,
+      img_url: "http://127.0.0.1:3000/img/lajiao1.png"
+    },
+    {
+      id: 2,
+      img_url: "http://127.0.0.1:3000/img/lajiao2.png"
+    },
+    {
+      id: 3,
+      img_url: "http://127.0.0.1:3000/img/lajiao3.png"
+    },
+    {
+      id: 4,
+      img_url: "http://127.0.0.1:3000/img/lajiao4.png"
+    },
+    {
+      id: 5,
+      img_url: "http://127.0.0.1:3000/img/lajiao5.png"
+    }, {
+      id: 6,
+      img_url: "http://127.0.0.1:3000/img/lajiao6.png"
+    }, {
+      id: 7,
+      img_url: "http://127.0.0.1:3000/img/lajiao7.png"
+    }, {
+      id: 8,
+      img_url: "http://127.0.0.1:3000/img/lajiao8.png"
+    }
+  ];
+  res.send(pics);
+})
 app.get("/getNews", (req, res) => {
   //1.参数 pno页码 pagesize每页大小
   var pno = req.query.pno;
@@ -113,65 +146,141 @@ app.get("/addComment", (req, res) => {
   pool.query(sql, [content, nid], (err, result) => {
     if (err) throw err;
     if (result.affectedRows > 0) {
-      res.send({code:1,msg:"评论发表成功"});
+      res.send({
+        code: 1,
+        msg: "评论发表成功"
+      });
     } else {
-      res.send({code:-1,msg:"评论发表失败"})
+      res.send({
+        code: -1,
+        msg: "评论发表失败"
+      })
     }
   })
 })
 //功能五:依据新闻编号(id),查询指定新闻编号评论列表
-app.get("/getComments",(req,res)=>{
+app.get("/getComments", (req, res) => {
   //1:参数       pno 页码;pageSize 页大小
   var pno = req.query.pno;
   var pageSize = req.query.pageSize;
   var nid = parseInt(req.query.nid);
   //1.2:默认值
-  if(!pno){
+  if (!pno) {
     pno = 1;
   }
-  if(!pageSize){
+  if (!pageSize) {
     pageSize = 7;
   }
   //2:验证正则表达式
   var reg = /^[0-9]{1,}$/;
-  if(!reg.test(pno)){
-     res.send({code:-1,msg:"页码格式不正确"});
-     return;
+  if (!reg.test(pno)) {
+    res.send({
+      code: -1,
+      msg: "页码格式不正确"
+    });
+    return;
   }
-  if(!reg.test(pageSize)){
-    res.send({code:-2,msg:"页大小格式不正确"});
+  if (!reg.test(pageSize)) {
+    res.send({
+      code: -2,
+      msg: "页大小格式不正确"
+    });
     return;
   }
   //3:创建sql
   //  查询总页数
   var sql = "SELECT count(id) as c FROM xz_comment";
-  sql +=" WHERE nid = ?"
+  sql += " WHERE nid = ?"
   var progress = 0; //sql执行进度
-  obj = {code:1};
-  pool.query(sql,[nid],(err,result)=>{
-       if(err)throw err;
-       //console.log(result[0].c);
-       var pageCount = Math.ceil(result[0].c/pageSize);
-       obj.pageCount = pageCount;
-       progress += 50;
-       if(progress == 100){
-        res.send(obj);
-       }
-  });
-  //  查询当前页内容
-var sql=" SELECT id,ctime,content";
-    sql +=" FROM xz_comment";
-    sql +=" WHERE nid = ?"
-    sql +=" LIMIT ?,?"
-var offset = parseInt((pno-1)*pageSize);
-pageSize = parseInt(pageSize);
-  pool.query(sql,[nid,offset,pageSize],(err,result)=>{
-    if(err)throw err;
-    //console.log(result);
-    obj.data = result;
-    progress+=50;
-    if(progress==100){
+  obj = {
+    code: 1
+  };
+  pool.query(sql, [nid], (err, result) => {
+    if (err) throw err;
+    //console.log(result[0].c);
+    var pageCount = Math.ceil(result[0].c / pageSize);
+    obj.pageCount = pageCount;
+    progress += 50;
+    if (progress == 100) {
       res.send(obj);
     }
-  }); 
+  });
+  //  查询当前页内容
+  var sql = " SELECT id,ctime,content";
+  sql += " FROM xz_comment";
+  sql += " WHERE nid = ?"
+  sql += " LIMIT ?,?"
+  var offset = parseInt((pno - 1) * pageSize);
+  pageSize = parseInt(pageSize);
+  pool.query(sql, [nid, offset, pageSize], (err, result) => {
+    if (err) throw err;
+    //console.log(result);
+    obj.data = result;
+    progress += 50;
+    if (progress == 100) {
+      res.send(obj);
+    }
+  });
 })
+
+//功能六:商品列表
+app.get("/getGoodsList", (req, res) => {
+  //1:参数       pno 页码;pageSize 页大小
+  var pno = req.query.pno;
+  var pageSize = req.query.pageSize;
+  //1.2:默认值
+  if (!pno) {
+    pno = 1;
+  }
+  if (!pageSize) {
+    pageSize = 4;
+  }
+  //2:验证正则表达式
+  var reg = /^[0-9]{1,}$/;
+  if (!reg.test(pno)) {
+    res.send({
+      code: -1,
+      msg: "页码格式不正确"
+    });
+    return;
+  }
+  if (!reg.test(pageSize)) {
+    res.send({
+      code: -2,
+      msg: "页大小格式不正确"
+    });
+    return;
+  }
+  //3:创建sql
+  //  查询总页数
+  var sql = "SELECT count(id) as c FROM xz_product";
+  var progress = 0; //sql执行进度
+  obj = {
+    code: 1
+  };
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    //console.log(result[0].c);
+    var pageCount = Math.ceil(result[0].c / pageSize);
+    obj.pageCount = pageCount;
+    progress += 50;
+    if (progress == 100) {
+      res.send(obj);
+    }
+  });
+  //  查询当前页内容
+  var sql = " SELECT id,name,img_url,price,bank";
+  sql += " FROM xz_product";
+  sql += " LIMIT ?,?"
+  var offset = parseInt((pno - 1) * pageSize);
+  pageSize = parseInt(pageSize);
+  pool.query(sql, [offset, pageSize], (err, result) => {
+    if (err) throw err;
+    //console.log(result);
+    obj.data = result;
+    progress += 50;
+    if (progress == 100) {
+      res.send(obj);
+    }
+  });
+});

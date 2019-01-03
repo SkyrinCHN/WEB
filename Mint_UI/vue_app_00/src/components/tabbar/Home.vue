@@ -1,16 +1,8 @@
 <template>
   <div>
-   
+    <!-- 第一个头部 被剪到根组件去了 -->
     <!-- 第二个: 轮播图 -->
-    <div class="swipe">
-      <mt-swipe :auto="2000">
-        <mt-swipe-item v-for="p in pics" :key="p.id">
-          <a href="javascript:;">
-            <img :src="p.img_url">
-          </a>
-        </mt-swipe-item>
-      </mt-swipe>
-    </div>
+    <swipe-box :list="list" class="swipe"></swipe-box>
     <div id="grid">
       <ul class="mui-table-view mui-grid-view mui-grid-9">
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -20,13 +12,13 @@
           </router-link>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-          <a href="javascript:;">
+          <router-link to="/GoodsList">
             <span>
               <img src="../../img/menu2.png">
               <!-- <span class="mui-badge">5</span> -->
             </span>
-            <div class="mui-media-body">点餐</div>
-          </a>
+            <div class="mui-media-body">买买买</div>
+          </router-link>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <a href="javascript:;">
@@ -54,19 +46,19 @@
         </li>
       </ul>
     </div>
-    
   </div>
 </template>
 <script>
+import swipe from "../sub/swipe"
 export default {
   methods: {
     getImages() {
       //获取轮播图片 1. 发送ajax请求   2.获取返回数据 保存到pics
-      console.log("测试测试");
+      // console.log("测试测试");
       var url = "http://127.0.0.1:3000/getImages";
       this.axios.get(url).then(result => {
         console.log(result);
-        this.pics = result.data;
+        this.list = result.data;
       });
     }
   },
@@ -76,17 +68,18 @@ export default {
   },
   data() {
     return {
-      pics: []
+      list:[]
     };
-  }
+  },
+  components:{"swipe-box":swipe},
 };
 </script>
 <style>
-div.swipe {
+.swipe {
   width: 100%;
-  height: 150px;
+  height: 130px;
 }
-div.swipe img {
+.swipe img {
   width: 100%;
 }
 #grid ul li img {
