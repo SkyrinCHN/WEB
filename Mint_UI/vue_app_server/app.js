@@ -284,3 +284,81 @@ app.get("/getGoodsList", (req, res) => {
     }
   });
 });
+//功能七:添加商品到购物车
+app.get("/addCart",(req,res)=>{
+  //1:参数 uid pid price count
+  var uid   = parseInt(req.query.uid);
+  var pid   = parseInt(req.query.pid);
+  var price = parseFloat(req.query.price);
+  var count = parseInt(req.query.count);
+  //2:sql  INSERT
+  var sql=" INSERT INTO `xz_cart`(`id`, ";
+      sql+=" `uid`, `pid`, `price`,";
+      sql+=" `count`) VALUES (null,?,?,?,?)";
+  pool.query(sql,[uid,pid,price,count],(err,result)=>{
+      if(err)throw err;
+      if(result.affectedRows > 0){
+        res.send({code:1,msg:"添加成功"});
+      }else{
+        res.send({code:-1,msg:"添加失败"});
+      }
+  })
+  //3:json {code:1,msg:"添加成功"}
+});
+
+//功能八:查询商品信息(补充价格信息,前边没有)
+app.get("/getProduct",(req,res)=>{
+  //1:参数 商品id
+  var pid = parseInt(req.query.id);
+  //2:sql  SELECT id,name,price,
+  var sql =" SELECT `id`, `name`, `img_url` , `price`, `bank` FROM `xz_product` WHERE id=?";
+  pool.query(sql,[pid],(err,result)=>{
+     if(err)throw err;
+     res.send({code:1,data:result[0]})
+  });
+});
+
+//功能九:注册功能
+app.get("/register", (req, res) => {
+  var name = req.query.name;
+  var pwd = req.query.pwd;
+  var reg = /^[a-z0-9_]{8,12}$/;
+
+  if (!reg.test(name)) {
+    res.send({ code: -1, msg: "用户名格式不正确" });
+    return;
+  }
+  if (pwd.trim().length < 6 || pwd.trim().length>12) {
+    res.send({ code: -1, msg: "密码长度不正确" })
+    return;
+  }
+  var sql = "insert into xz_login values(null,?,md5(?))"
+  pool.query(sql, [name, pwd], (err, result) => {
+    if (err) throw err;
+    if (result.affectedRows > 0) {
+      res.send({ code: 1, msg: "注册成功" });
+    } else {
+      res.send({ code: -1, msg: "验证通过,但注册失败" });
+    }
+  })
+})
+
+app.get("/existsName", (req, res) => {
+  var name = req.query.name;
+  var reg = /^[a-z0-9_]{8,12}$/i;
+  if (!reg.test(name)) {
+    res.send({ code: -1, msg: "用户名格式不正确" });
+    return;
+  }
+  var sql = "select count(id) as c from xz_login where name=?";
+  pool.query(sql, [name], (err, result) => {
+    if (err) throw err;
+
+    if (result[0].c>0) {
+      res.send({ code: -1, msg: "用户名已存在" });
+    } else {
+      res.send({ code: 1, msg: "用户名可使用" });
+    }
+  })
+})
+

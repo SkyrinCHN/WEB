@@ -8,11 +8,14 @@ import test02 from "./components/test/test02.vue"
 import NewsInfo from "./components/home/NewsInfo.vue"
 import GoodsList from "./components/goods/GoodsList.vue"
 import GoodsInfo from "./components/goods/GoodsInfo.vue"
+import Register from "./components/tabbar/Register.vue"
+import Login from "./components/tabbar/Login.vue"
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/Login",component:Login},
     { path: '/', redirect: "/home" },
     { path: "/home", component: Home },
     { path: "/NewsList", component: NewsList },
@@ -20,6 +23,7 @@ export default new Router({
     { path: "/test02/:age", component: test02 },
     { path: "/NewsInfo", component: NewsInfo },
     { path: "/GoodsList", component: GoodsList },
-    { path: "/GoodsInfo/:id", component:GoodsInfo},
+    { path: "/GoodsInfo/:id", component: GoodsInfo },
+    { path: "/Register", component: Register },
   ]
 })
