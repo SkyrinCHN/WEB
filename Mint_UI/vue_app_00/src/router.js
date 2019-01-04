@@ -10,11 +10,12 @@ import GoodsList from "./components/goods/GoodsList.vue"
 import GoodsInfo from "./components/goods/GoodsInfo.vue"
 import Register from "./components/tabbar/Register.vue"
 import Login from "./components/tabbar/Login.vue"
-
+import ShopList from "./components/tabbar/ShopList.vue"
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/ShopList",component:ShopList},
     {path:"/Login",component:Login},
     { path: '/', redirect: "/home" },
     { path: "/home", component: Home },

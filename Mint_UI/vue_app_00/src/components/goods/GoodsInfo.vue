@@ -77,20 +77,18 @@ export default {
     },
     addCart() {
       //参数 uid = 1 pid count price
-      var uid = 1,
-        pid = this.id,
+      var pid = this.id,
         count = this.val,
-        price = 9.9;
+        price = 9.9,
+        uid = 1;
       //发送ajax请求将数据发送到服务器
       var url =
-        "http://127.0.0.1:3000/addCart?uid=" +
-        uid +
-        "&pid=" +
+        "http://127.0.0.1:3000/addCart?pid="+ 
         pid +
         "&count=" +
         count +
         "&price=" +
-        price;
+        price+"&uid="+uid;
       this.axios.get(url).then(result => {
         // console.log(result.data);
         if (result.code > 0) {

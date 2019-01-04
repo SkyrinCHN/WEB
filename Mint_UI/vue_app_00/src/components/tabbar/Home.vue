@@ -21,10 +21,10 @@
           </router-link>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-          <a href="javascript:;">
+          <router-link to="/ShopList">
             <img src="../../img/menu3.png">
             <div class="mui-media-body">购物车</div>
-          </a>
+          </router-link>
         </li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
           <a href="javascript:;">
@@ -57,7 +57,7 @@ export default {
       // console.log("测试测试");
       var url = "http://127.0.0.1:3000/getImages";
       this.axios.get(url).then(result => {
-        console.log(result);
+        // console.log(result);
         this.list = result.data;
       });
     }

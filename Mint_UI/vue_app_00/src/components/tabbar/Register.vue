@@ -15,7 +15,6 @@
         </form>
       </div>
     </div>
-    <div class="mui-card-footer">页脚</div>
   </div>
   </div>
 </template>
@@ -60,12 +59,7 @@ export default {
       var name = this.name;
       var pwd = this.pwd;
       var pwdAgain = this.pwdAgain;
-      var regName = /^[a-z0-9_]{8,12}$/i;
       var regPwd = /^[a-z0-9_]{8,12}$/i;
-      if (!regName.test(name)) {
-        Toast("用户名格式不正确");
-        return;
-      }
       if(!regPwd.test(pwd)){
         Toast("密码格式不正确");
         return;
