@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+  body{text-align: center}
+  svg{background: #006699}
+  </style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <svg id="s3" width="1000" height="700">
+       <!-- 定义特效对象 -->
+    <defs>
+      <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="red"></stop>
+        <stop offset="100%" stop-color="#fff"></stop>
+      </linearGradient>
+      <!-- 高斯的模糊滤镜 -->
+      <filter id="f2">
+        <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+      </filter>
+    </defs>
+    <image xlink:href="../day03/res/mm.png" x="100" y="100"></image>
+    <rect x="400" y="400" width="150" height="80" fill="url(#g3)"></rect>
+    <text font-size="70" x="500" y="600">未加滤镜</text>
+    <text font-size="70" x="300" y="600" filter="url(#f2)">添加滤镜</text>
+  </svg>
+  <script>
+    
+  </script>
+</body>
+</html>

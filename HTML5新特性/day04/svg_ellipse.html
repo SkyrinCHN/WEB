@@ -1,18 +1,47 @@
 <!doctype html>
 <html lang="zh-CN">
+
 <head>
   <title>Title</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <style></style>
+  <style>
+    body {
+      text-align: center
+    }
+
+    svg {
+      background: rgb(253, 227, 218)
+    }
+  </style>
 </head>
+
 <body>
   <!--author:LiuHai -->
   <!--github:https://github.com/SkyrinCHN	-->
-  
+  <h3>svg椭圆直线</h3>
+  <svg id="s3" width="1000" height="600">
+    <ellipse rx="150" ry="100"  cx="300" cy="200" fill="red"></ellipse>
+    <ellipse rx="100" ry="150"  cx="300" cy="200" fill="blue"></ellipse> 
+    <line x1="50" y1="50" x2="100" y2="50" stroke="red" stroke-width="5" stroke-linecap="round"></line> 
+    <!-- 折叠图标 -->
+    <g stroke="black" stroke-width="3" stroke-linecap="round">
+      <line x1="10" y1="10" x2="13" y2="10"></line>
+      <line x1="20" y1="10" x2="45" y2="10"></line>
+      <line x1="10" y1="20" x2="13" y2="20"></line>
+      <line x1="20" y1="20" x2="45" y2="20"></line>
+      <line x1="10" y1="30" x2="13" y2="30"></line>
+      <line x1="20" y1="30" x2="45" y2="30"></line>
+    </g>
+    <!-- 折线 -->
+    <polyline points="10,50,100,200,330,234,231,534,675,423," stroke="red" fill="transparent"></polyline>
+    <!-- 文本 -->
+    <text font-size="16" fill="red" stroke="vlue" x="800" y="400">SVG文本测试</text>
+  </svg>
   <script>
-    
+    var s3 = document.getElementById("s3");
   </script>
 </body>
+
 </html>

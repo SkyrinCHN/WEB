@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../public/echarts.min.js"></script>
+  <script src="../public/jquery-1.11.3.js"></script>
+  <style>
+    body{
+      text-align: center
+    }
+    #main{width: 1000px;height: 800px;}
+  </style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <div id="main"></div>
+  <script>
+    $.ajax({
+      url:"http://localhost:3000/sales",
+      type:"get",
+    }).then(result=>{
+    var main = document.getElementById("main");
+    var myEchart = echarts.init(main);
+    var data=[];
+    var value=[];
+    for(var item of result){
+      data.push(item.name);
+      value.push(item.value)
+    }
+    var option={
+      title:{text:"折线图"},
+      xAxis:{data:data},
+      yAxis:{},
+      series:[{type:"bar",data:value}]
+    };
+    myEchart.setOption(option)
+  })
+  </script>
+  
+</body>
+</html>

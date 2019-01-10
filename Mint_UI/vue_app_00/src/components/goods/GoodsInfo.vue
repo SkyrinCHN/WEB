@@ -27,7 +27,7 @@
         <!-- <mt-button size="small" type="danger" class="buy">立即购买</mt-button> -->
         <button class="buy">立即购买</button>
         <!-- <mt-button size="small" type="primary">加入购物车</mt-button> -->
-        <button class="in-cart" @click="addCart">加入购物车</button>
+        <button class="in-cart" @click="addCart" >加入购物车</button>
       </div>
     </div>
   </div>

@@ -25,7 +25,6 @@
 					</a>
 				</li>
          </ul>
-             <!--商品项目 end-->
 					</div>
 				</div>
 				<div class="mui-card-footer">
@@ -35,9 +34,6 @@
    </div>  
 </template>
 <script>
-   //练习1:创建元素
-   //练习2:发送请求获取购物车列表中数据
-   //练习3:小计
   export default {
     created() {
       this.getList();
@@ -51,7 +47,7 @@
       updateItemCount(id,count){
         //同步购物车中数量
         //id    购物车id
-        //count 购物车中数量
+        //count 商品数量
         var url = "http://127.0.0.1:3000/";
         url+="updateCart?id="+id;
         url+="&count="+count;
@@ -62,7 +58,7 @@
       cartSub(e){
         var id = e.target.dataset.id;
         for(var item of this.list){
-           if(item.id == id && item.count > 1){
+           if(item.id == id ){
              item.count--;
              //同步数据
              this.updateItemCount(item.id,item.count);
@@ -79,7 +75,7 @@
           if(item.id == id){
             //4:修改数据
             item.count++;
-            //同步数据 40
+            //同步数据到数据库
             this.updateItemCount(item.id,item.count)
             break;
           }

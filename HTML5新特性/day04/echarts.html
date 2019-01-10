@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+  #main{
+    width: 1000px;
+    height: 800px;
+  }
+  </style>
+  <script src="../public/echarts.min.js"></script>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <h3>使用第三方的echarts</h3>
+  <div id="main"></div>
+  <script>
+    //获取容器并创建echats对象
+    var main = document.getElementById("main");
+    var myEchart = echarts.init(main);
+    //创建配置选项
+    var option = {
+      title:{text:"Echarts入门实例"},
+      xAxis:{data:["东城","西城","南城","北城"]},
+      yAxis:{},
+      series:[{
+        type:"bar",data:[190,210,160,290]
+      }]
+    };
+    //将配置选项添加echarts对象
+    myEchart.setOption(option)
+  </script>
+</body>
+</html>
