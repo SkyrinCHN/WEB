@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    #box {
+      width: 100%;
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <div id="box">
+    <video src="./day01/res/x.mp4" 
+    id="v3" 
+    webkit-playsinline="true"
+    x5-video-player-type="h5"
+    x5-video-player-fullscreen="true"
+    x5-video-orientation="portraint"
+    controls
+    ></video>
+    <h5>音频文件</h5>
+    <input type="checkbox" id="c3">播放背景音乐
+    <audio src="./day01/res/bg.mp3" controls id="a3"></audio>
+  </div>
+  <script>
+    var v3 = document.getElementById("v3");
+    window.onresize=function(){
+      v3.style.width=window.innerWidth+"px";
+      v3.style.height=window.innerHeight+"px";
+    }
+    //canplaythrough 视频下载播放状态
+    v3.addEventListener("canplaythrough",function(){
+      console.log("1.canplaythrough");
+      console.log("总时长",v3.duration);
+    })
+    //timeupdata
+    v3.addEventListener("timeupdate",function(){
+      console.log("2.timeupdate");
+      console.log(v3.currentTime);
+    })
+    //ended
+    v3.addEventListener("ended",function(){
+      console.log("3.播放事件:结束")
+    })
+    var c3 = document.getElementById("c3");
+    var a3 = document.getElementById("a3");
+    c3.onchange=function(){
+      var res = this.checked;
+     if(res){a3.play()}
+     else{a3.pause()}
+    }
+  </script>
+</body>
+
+</html>

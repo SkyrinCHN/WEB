@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    body{
+      text-align: center;
+    }
+    .container{
+      position: relative;
+    }
+    .container .ctrl{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -60px;
+      margin-left: -60px;
+    }
+    .container .ctrl img{
+      width: 150%;
+      /* height: 150%; */
+    }
+   .container .ad{
+      position: absolute;
+      width: 500px;
+      height: 300px;
+      left: 50%;
+      top:50%;
+      margin-left: -250px;
+      margin-top: -150px;
+    }
+  </style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <h3>视频播放</h3>
+  <div class="container">
+    <!-- 视频 -->
+    <video src="res/x.mp4" id="v3"></video>
+    <!-- 广告 -->
+    <img src="res/ad.png" class="ad">    
+    <a class="ctrl">
+      <img src="/res/play.png">
+    </a>
+    <!-- <a class="pause" >
+      <img src="/res/pause.png">
+    </a> -->
+  </div>
+  <script>
+    var container = document.querySelector(".container");
+    var v3 =document.getElementById("v3");
+    var ctrl = document.querySelector(".ctrl");
+    var img = document.querySelector(".ctrl img");
+    container.onmouseenter=function(){ctrl.style.display="block"};
+    container.onmouseleave=function(){ctrl.style.display="none"};
+    ctrl.onclick=function(e){
+      e.preventDefault();
+      if(v3.paused){
+         v3.play();
+         img.src="res/pause.png"
+      }else{
+        v3.pause();
+        img.src="res/play.png"
+      }
+    }
+    var ad = document.querySelector(".ad");
+    v3.onplay=function(){
+      ad.style.display="none";
+    }
+    v3.onpause = function () {
+      ad.style.display="block";
+    }
+  </script>
+</body>
+</html>

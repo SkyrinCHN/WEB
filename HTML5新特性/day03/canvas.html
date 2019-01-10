@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+  canvas{
+    background-color:grey;
+  }
+  </style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <canvas id="c3" width="500" height="400"></canvas>
+  <!-- 画布标签 -->
+  <script>
+    var c3 = document.getElementById("c3");//获取画布
+    var ctx = c3.getContext("2d");//获取画笔
+    ctx.lineWidth=3;
+    ctx.strokeStyle="pink";
+    ctx.fillStyle="pink";
+    ctx.strokeRect(3,3,100,80);//描边矩形
+    ctx.strokeStyle="red";
+    ctx.strokeRect(397,3,100,80);//描边矩形
+    ctx.strokeStyle="purple";
+    ctx.strokeRect(3,317,100,80);//描边矩形
+    ctx.strokeStyle="yellow";
+    ctx.strokeRect(397,317,100,80);//描边矩形
+    ctx.strokeStyle="blue";
+    ctx.strokeRect(200,160,100,80);//描边矩形
+    // ctx.fillRect(0,0,100,80);
+    // ctx.
+  </script>
+</body>
+</html>

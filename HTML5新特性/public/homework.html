@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    canvas {
+      background-color: rgb(224, 215, 215);
+    }
+  </style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <canvas id="c3" width="500" height="500"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var b = c3.getContext("2d");
+
+    function open() {
+      b.clearRect(0, 0, 500, 500)
+      //外围轮廓
+      b.beginPath();
+      b.arc(250, 200, 100, 35 * Math.PI / 180, 340 * Math.PI / 180);
+      b.lineTo(250, 200);
+      b.strokeStyle = "#38f";
+      b.closePath();
+      b.stroke();
+
+      //2.蓝色眼球
+      b.beginPath();
+      b.arc(265, 150, 25, 0, 360 * Math.PI / 180);
+      b.fillStyle = "#38f";
+      b.fill();
+      //3.白色眼神
+      b.beginPath();
+      b.arc(270, 150, 6, 0, 360 * Math.PI / 180);
+      b.fillStyle = "#fff";
+      b.fill();
+
+    }
+    // open();
+    // close();
+    function close() {
+      b.clearRect(0, 0, 500, 500)
+      //1.外围轮廓
+      b.beginPath();
+      b.arc(250, 200, 100, 0, 360 * Math.PI / 180);
+      b.strokeStyle = "#38f";
+      b.stroke();
+      //2.蓝色眼球
+      b.beginPath();
+      b.arc(265, 150, 25, 0, 360 * Math.PI / 180);
+      b.fillStyle = "#38f";
+      b.fill();
+      //3.白色眼神
+      b.beginPath();
+      b.arc(270, 140, 6, 0, 360 * Math.PI / 180);
+      b.fillStyle = "#fff";
+      b.fill();
+      //4闭着的嘴
+      b.beginPath();
+      b.moveTo(350, 200);
+      b.lineTo(250, 200);
+      b.closePath();
+      b.stroke();
+    }
+    var i = 0;
+    setInterval(() => {
+      i++;
+      if (i % 2 == 0) {
+        open()
+      } else {
+        close()
+      };
+    }, 500);
+  </script>
+</body>
+
+</html>

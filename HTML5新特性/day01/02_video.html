@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    /* video{
+      width: 400px;
+      height: 400px;
+    } */
+    img{
+      display: none;
+    }
+    img:hover{
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <h3>视频播放</h3>
+  <!-- 外观默认300*150 默认inline-block -->
+  <video src="res/x.mp4" controls muted poster="/res/ad.png" id="v3"></video>
+  <hr>
+  <!-- <button id="play">▶️</button> -->
+  <!-- <button id="stop">⏸</button> -->
+  <img src="/res/play.png" alt="" id="play">
+  <img src="/res/pause.png" alt="" id="stop">
+  <script>
+    var v3 = document.getElementById("v3");
+    v3.volume=0.2;//初始音量 0-1
+    v3.playbackRate=2;//播放速度
+    var play = document.getElementById("play");
+    var stop = document.getElementById("stop");
+    play.onclick=function(){v3.play();}
+    stop.onclick=function(){v3.pause();}
+    v3.onplay=function(){console.log("播放视频")};
+    v3.onpause=function(){console.log("暂停视频")};
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    canvas{
+      background-color: rgb(192, 186, 186);
+    }
+  </style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <canvas id="c3" width="500" height="500"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var b = c3.getContext("2d");
+    //Y轴
+    b.strokeStyle="green";
+    b.beginPath();
+    b.moveTo(20,480);
+    b.lineTo(480,480);
+    b.closePath();
+    b.stroke();
+    b.beginPath();
+    b.moveTo(480,480);
+    b.lineTo(470,490);
+    b.closePath();
+    b.stroke();
+    b.beginPath();
+    b.moveTo(480,480);
+    b.lineTo(470,470);
+    b.closePath();
+    b.stroke();
+
+    //X轴
+    b.strokeStyle="#006699";
+    b.beginPath();
+    b.moveTo(20,480);
+    b.lineTo(20,20);
+    b.closePath();
+    b.stroke();
+    b.beginPath();
+    b.moveTo(20,20);
+    b.lineTo(10,30);
+    b.closePath();
+    b.stroke();
+    b.beginPath();
+    b.moveTo(20,20);
+    b.lineTo(30,30);
+    b.closePath();
+    b.stroke();
+  </script> 
+</body>
+</html>

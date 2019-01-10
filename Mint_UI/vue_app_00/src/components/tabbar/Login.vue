@@ -30,7 +30,7 @@
         </ul>
       </form>
       <div class="mui-content-padded">
-        <button id="login" type="button" class="mui-btn mui-btn-block mui-btn-primary" @click="login">登录</button>
+        <button id="login" type="button" class="mui-btn mui-btn-block mui-btn-primary" @click.prevent="login">登录</button>
         <div class="link-area">
           <router-link id="reg" to="/Register">注册账号</router-link>
           <span class="spliter">|</span>

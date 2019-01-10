@@ -6,7 +6,6 @@
         </div>
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
-             <!--商品项目 start-->
   <ul class="mui-table-view">
 				<li class="mui-table-view-cell mui-media" v-for="item in list" :key="item.id">
 					<a href="javascript:;">
@@ -30,7 +29,7 @@
 					</div>
 				</div>
 				<div class="mui-card-footer">
-           小计:0.00
+           小计:{{getSubTotal}}
         </div>
         </div>
    </div>  
@@ -71,8 +70,6 @@
            }
         }
       },
-      //练习1：数量加判断不能小于1
-      //练习2: 购物车数量同步操作 2->3 3
       cartAdd(e){
         //1:获取当前按钮绑定购物车id
         var id = e.target.dataset.id
@@ -95,6 +92,16 @@
           //console.log(result);
           this.list = result.data.data
         })
+      },
+
+    },
+    computed:{
+      getSubTotal:function(){
+        var sum = 0 ; 
+        for(var item of this.list){
+          sum += item.price*item.count;
+        }
+        return sum;
       }
     }
   }  

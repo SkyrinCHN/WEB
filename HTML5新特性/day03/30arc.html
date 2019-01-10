@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body {
+      text-align: center;
+    }
+
+    svg {
+      width: 1000px;
+      height: 600px;
+      background-color: rgb(192, 186, 192)
+    }
+  </style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <svg id="s3">
+  </svg>
+  <script>
+    function rn(min, max) {
+      var num = Math.random() * (max - min) + min;
+      return Math.floor(num)
+    };
+
+    function rb(min, max) {
+      var r = rn(min, max);
+      var g = rn(min, max);
+      var b = rn(min, max);
+      return `rgb(${r},${g},${b})`;
+    };
+    var s3 = document.getElementById("s3");
+    for (var i = 0; i < 30; i++) {
+      //创建矩形 循环30次
+      var rect = document.createElementNS(
+        "http://www.w3.org/2000/svg", "rect"
+      );
+      //添加随机颜色 大小 透明度
+      rect.setAttribute("x", rn(50, 950));
+      rect.setAttribute("y", rn(50, 550));
+      rect.setAttribute("fill", rb(0, 256))
+      rect.setAttribute("width", rn(50, 100));
+      rect.setAttribute("height", rn(50, 100));
+      rect.setAttribute("fill-opacity", Math.random())
+      //添加到画布
+      s3.appendChild(rect);
+      //点击
+      rect.onclick = function (e) {
+        this.onclick=null;
+        //变大 变淡 最后消失不见
+        // console.log(e.target)
+        var t = setInterval(() => {
+          var w = this.getAttribute("width");
+          var h = this.getAttribute("height");
+          var op=this.getAttribute("fill-opacity");
+          w *= 1.05;
+          h *= 1.05;
+          op *=.9;
+          this.setAttribute("width",w);
+          this.setAttribute("height",h);
+          this.setAttribute("fill-opacity",op);
+          if(op<0.1){
+            clearInterval(t);
+            s3.removeChild(e.target);
+          }
+        }, 100);
+      }
+    }
+  </script>
+</body>
+
+</html>

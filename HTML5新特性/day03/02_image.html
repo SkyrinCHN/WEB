@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+  body{
+      text-align: center;
+    }
+    canvas{
+      background-color: antiquewhite;
+    }</style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <canvas id="c3" width="500" height="500"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var b = c3.getContext("2d");
+    //1.创建图片对象
+    var p3 =new Image();
+    //2.下载图片
+    p3.src="res/p3.png";
+    //图片绑定事件
+    p3.onload=function(){
+      var pw = p3.width;
+      var ph = p3.height;
+      //为画布绑定mousemove事件
+      c3.onmousemove=function(e){
+        b.clearRect(0,0,500,500);
+        var x = e.offsetX;
+        if(x>400){
+          x=400;
+        }
+        if(x<100){x=100};
+        var y = e.offsetY;
+        if(y<50){y=50};
+        if(y>450){y=450};
+        // console.log(x,y); 
+        b.drawImage(p3,x-pw/2,y-ph/2);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -10,6 +10,21 @@ app.use(cors({
   origin: ["http://127.0.0.1:3001", "http://localhost:3001"],
   credentials: true
 }))
+//session配置
+app.use(session({
+  secret:"128位随机字符串",   //安全令牌
+  resave:false,              //请求保存
+  saveUninitialized:true,    //初始化
+  cookie:{                   //sessionid保存时
+    maxAge:1000*60*60*24     //间1天 cookie
+  }
+}));
+
+//功能十二:退出登录
+app.get("/logout", (req, res) => {
+  req.session.uid = null;
+  res.send({code:1,msg:"退出成功"})
+})
 // 功能一:首页轮播图
 app.get("/getImages", (req, res) => {
   var pics = [{
@@ -288,7 +303,7 @@ app.get("/getGoodsList", (req, res) => {
 //功能七:添加商品到购物车
 app.get("/addCart",(req,res)=>{
   //1:参数 uid pid price count
-  var uid   = parseInt(req.query.uid);
+  var uid   = parseInt(req.session.uid);
   var pid   = parseInt(req.query.pid);
   var price = parseFloat(req.query.price);
   var count = parseInt(req.query.count);
@@ -365,15 +380,7 @@ app.get("/existsName", (req, res) => {
   })
 })
 
-//session配置
-app.use(session({
-  secret:"128位随机字符串",   //安全令牌
-  resave:false,              //请求保存
-  saveUninitialized:true,    //初始化
-  cookie:{                   //sessionid保存时
-    maxAge:1000*60*60*24     //间1天 cookie
-  }
-}));
+
 
 //功能十一:登录
 app.get("/Login", (req, res) => {
@@ -391,8 +398,8 @@ app.get("/Login", (req, res) => {
       req.session.uid = result[0].id;
       res.send({ code: 1, msg: "登录成功" });
       console.log(req.session.uid);
-      // console.log("用户的UID为:" + req.session.uid)
-      // console.log("查询count的结果为:" + result[0].c);
+      console.log("用户的UID为:" + req.session.uid)
+      console.log("查询count的结果为:" + result[0].c);
     } else {
       // console.log(result);
       res.send({code:-1,msg:"用户名或密码错误"})
@@ -404,7 +411,7 @@ app.get("/Login", (req, res) => {
 app.get("/getCartList", (req, res) => {
   var uid = req.session.uid;
   console.log(uid);
-  var sql = "select p.name,c.count,c.price,c.id  from xz_product p , xz_cart c where p.id =c.pid and c.uid=1";
+  var sql = "select p.name,c.count,c.price,c.id  from xz_product p , xz_cart c where p.id =c.pid and c.uid=?";
   pool.query(sql, [uid], (err, result) => {
     if (err) throw err;
     // console.log(result);

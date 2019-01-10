@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body{
+      text-align: center;
+    }
+    canvas{
+      background-color: bisque;
+    }
+  </style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <h3>Canvas路径</h3>
+  <canvas id="c3" width="500" height="500"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var b =c3.getContext("2d");
+    b.beginPath();
+    b.moveTo(250,200);
+    b.lineTo(300,200);
+    b.lineTo(300,300);
+    b.closePath();
+    b.stroke();//描边
+    //绘制一个圆环
+    b.arc(50,50,50,0,360*Math.PI/180);
+    b.stroke();
+    b.beginPath();
+    b.arc(500,50,25,0,180*Math.PI/180);
+    b.stroke();
+  </script>
+</body>
+</html>

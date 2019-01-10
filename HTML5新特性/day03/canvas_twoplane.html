@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body {
+      text-align: center;
+    }
+
+    canvas {
+      background-color: antiquewhite;
+    }
+  </style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <canvas id="c3" width="800" height="800"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var b = c3.getContext("2d");
+    //1.创建图片对象
+    var p3 = new Image();
+    var p4= new Image();
+    p4.src="res/p4.png";
+    //2.下载图片
+    p3.src = "res/p3.png";
+    //图片绑定事件
+    p3.onload = function () {
+      //  b.drawImage(p3,0,0);
+      //  b.rotate(10*Math.PI/180);//旋转10度
+      //  b.drawImage(p3,0,0);
+      //  b.rotate(10*Math.PI/180);//再旋转10度
+      //  b.drawImage(p3,0,0);
+      //  //原点平移
+      //  b.drawImage(p3,0,0);
+      //  b.rotate(10*Math.PI/180);
+      //  b.drawImage(p3,0,0);
+      //  b.rotate(10*Math.PI/180);
+      //  b.drawImage(p3,0,0);
+      
+      var pw=p3.width;
+      var ph =p3.height;
+      var deg1 = 15;
+      var deg2 = 30;
+      setInterval(function () {
+        b.clearRect(100,90,500,500);
+        b.save();
+        b.translate(400,400);
+        b.rotate(deg1 * Math.PI / 180);
+        b.drawImage(p3, 0-pw/2, 0-ph/2);
+        b.restore();
+        deg1+=15;
+        b.save();
+        b.translate(300,200);
+        b.rotate(deg2*Math.PI/180);
+        b.drawImage(p3,-100,-50);
+        b.restore();
+        deg2+=30;
+      }, 100)
+    }
+
+  </script>
+</body>
+
+</html>

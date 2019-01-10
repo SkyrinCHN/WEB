@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    canvas {
+      background-color: antiquewhite;
+    }
+  </style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <canvas id="c3" width="500" height="400"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var ctx = c3.getContext("2d");
+    var x = 0;
+    var y = 0;
+
+    var t = setInterval(function () {
+      ctx.clearRect(0, 0, 500, 400);
+      var xDerection=1;
+      // var yDerection=1;
+      if (x >= 400 ) {
+        xDerection  = -1;
+      } else {
+        xDerection  = 1;
+      }
+      x += 1 * xDerection;
+      // y += 1 * yDerection;
+      ctx.strokeRect(x, 0, 100, 80);
+    }, 10);
+  </script>
+</body>
+
+</html>

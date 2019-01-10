@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body{
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <canvas id="c3" width="150" height="50"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var b = c3.getContext("2d");
+  
+    //1.创建4个随机的字符
+    function rn(min,max){
+      var num = Math.random()*(max-min)+min;
+      return Math.floor(num)
+    };
+    //2.创建一个颜色随机的背景图
+    function rb(min,max){
+      var  r =rn(min,max);
+      var  g =rn(min,max);
+      var  b =rn(min,max);
+      return `rgb(${r},${g},${b})`;
+    };
+    b.fillStyle=rb(180,230);
+    b.fillRect(0,0,150,50);
+    var str="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+    for(var i =0;i<4;i++){
+      var index = rn(0,str.length);
+      var c = str[index];
+      console.log(c);
+      b.textBaseline="top";
+      b.fillStyle=rb(1,255);
+      var fs = rn(15,30);
+      b.font=fs+"px sans-serif";
+      b.fillText(c,i*40+10,15);
+    }
+    //3.图片上添加5个干扰线
+    for(var i =0;i<10;i++){
+      b.beginPath();
+      b.moveTo(rn(0,150),rn(0,50));
+      b.lineTo(rn(0,150),rn(0,50));
+      b.strokeStyle=rb(0,255);
+      b.lineWidth=2;
+      b.stroke();
+    }
+    //4.添加几十个干扰点
+    for(var i = 0;i<50;i++){
+      b.beginPath();
+      b.fillStyle=rb(0,255);
+      b.arc(rn(0,150), rn(0,50), 1, 0, 360 * Math.PI / 180);
+      b.stroke();
+    }
+  </script>
+</body>
+
+</html>
