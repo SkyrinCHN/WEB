@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body{
+      text-align: center;
+    }
+  div{
+    text-align: right;
+  }
+  </style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <h3>这是主页</h3>
+    <div>
+       <span id="txt"></span> <a href="./login.html" id="tag">请登录</a>
+    </div>
+    <!-- <p id="txt"></p> -->
+  <script>
+    var tag =document.getElementById("tag");
+    var txt = document.getElementById("txt")
+    var uname = sessionStorage["name"];
+    if(uname){
+      txt.innerHTML="欢迎回来"+uname;
+      tag.innerHTML="点击退出";
+      tag.href="./logout.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <button>按钮一</button>
+  <script>
+    //Worker 新的线程
+  var w = new Worker("./1.js")
+  w.postMessage("小了白了兔");
+  w.onmessage=function(e){console.log(e.data)};
+  </script>
+  <button>按钮二</button>
+  
+  <script>
+    
+  </script>
+</body>
+</html>

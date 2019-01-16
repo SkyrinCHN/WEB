@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+  body{
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <button id="logout">点击退出</button>
+  <script>
+    var logout = document.getElementById("logout");
+    logout.onclick=function(){
+      sessionStorage.removeItem("name");
+      location.href="index01.html";
+    }
+  </script>
+</body>
+</html>

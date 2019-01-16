@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    .blue {
+      background: #006699;
+      color: #fff;
+    }
+
+    .pink {
+      background: pink;
+      color: rgb(245, 62, 62)
+    }
+
+    .dark {
+      background: black;
+      color: #fff
+    }
+
+    body {
+      text-align: center;
+    }
+
+    select {
+      width: 200px;
+      height: 30px;
+      font-size: 15px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <!-- 选择用户喜欢的风格 (永久保存)-->
+  <div>
+    <h3>请选择一个主题:</h3>
+    <hr>
+    <select id="theme">
+      <option value="">经典风格</option>
+      <option value="blue">蔚蓝天空</option>
+      <option value="pink">芭比公主</option>
+      <option value="dark">暗黑色彩</option>
+    </select>
+  </div>
+  <script>
+    var theme = document.getElementById("theme");
+    theme.onchange = function () {
+      var val = this.value;
+      document.body.className = val;
+      localStorage["theme"]=val;
+    }
+    var val = localStorage["theme"];
+    if (val) {
+      document.body.className = val;
+    }
+  </script>
+</body>
+
+</html>

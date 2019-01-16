@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../public/echarts.min.js"></script>
+  <script src="../public/jquery-1.11.3.js"></script>
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <div id="main" style="width:1000px;height:800px"></div>
+  <script>
+    var main = document.getElementById("main");
+    var myChart = echarts.init(main);
+    $.ajax({
+      url: "http://localhost:3000/yaopin",
+      data: {
+        name: "西瓜霜"
+      },
+      success: (res) => {
+        // console.log(res);
+        var yname=[];
+        var ysales=[];
+        for(var item of res){
+          yname.push(item.month);
+          ysales.push(item.sales);
+          // console.log(yname);
+          // console.log(ysales);
+        }
+        var option = {
+          xAxis: {
+            data:yname
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [{
+            data: ysales,
+            type: 'bar'
+          }]
+        };
+        myChart.setOption(option);
+      }
+    })
+  </script>
+</body>
+
+</html>

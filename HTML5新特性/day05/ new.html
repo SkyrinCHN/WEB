@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+  <img src="../public/res/trash.png" id="trash" />
+  <hr>
+  <div class="container">
+    <img src="../public/res/p3.png" id="p3">
+    <img src="../public/res/p4.png" id="p4">
+    <img src="../public/res/p5.png" id="p5">
+  </div>
+  <script>
+    var pid = 0; //声明一个全局变量 保存要删除的飞机编号
+    var trash = document.getElementById("trash");
+    var container = document.querySelector(".container");
+    var list = document.querySelectorAll(".container img");
+    for (var item of list) {
+      //小飞机拖动事件3个
+      item.ondragstart = function () {
+        pid = this.id;
+        console.log(pid);
+      };
+      item.ondrag = function () {};
+      item.ondragend = function () {};
+    }
+    //为垃圾箱保存拖动事件 4个
+    trash.ondragenter = function () {};
+    trash.ondragover = function (e) {e.preventDefault()};
+    trash.ondragleave = function () {};
+    trash.ondrop = function () {
+      var img = document.getElementById(pid);
+      container.removeChild(img);
+    }
+  </script>
+</body>
+
+</html>

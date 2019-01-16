@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+  body{
+    padding-top: 10px;
+  }
+  .all_bg{
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+  }
+  #allcanvas{
+    width: 800px;
+    height: 600px;
+    position: relative;
+    margin: 0;
+  }
+  #canvas1{
+    position: absolute;
+    width: 800px;
+    height: 600px;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+  #canvas2{
+    position: absolute;
+    width: 800px;
+    height: 600px;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+  }
+  </style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <div class="all_bg">
+    <div id="allcanvas">
+        <canvas id="canvas1" width="800px" height="600px"></canvas>
+        <canvas id="canvas2" width="800px" height="600px"></canvas>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/commonFunctions.js"></script>
+  <!-- <script src="js/ane.js"></script> -->
+  <script src="js/ane2.js"></script>
+  <!-- <script src="js/fruit.js"></script> -->
+  <script src="js/fruit02.js"></script>
+</body>
+</html>

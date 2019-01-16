@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    .blue {
+      background: #006699;
+      color: #fff;
+    }
+
+    .pink {
+      background: pink;
+      color: rgb(245, 62, 62)
+    }
+
+    .dark {
+      background: black;
+      color: #fff
+    }
+  </style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <!-- 用户中心 切换到用户所选择的风格 -->
+  <h3>个人中心</h3>
+  <p>12345678</p>
+  <script>
+    var val = localStorage["theme"];
+    // console.log(val);
+    if (val) {
+      document.body.className = val
+    }
+    //监听localstorge是否被修改
+    window.onstorage=function(){
+      console.log("12345");
+      var val =localStorage["theme"];
+      document.body.className=val;
+    }
+  </script>
+</body>
+
+</html>

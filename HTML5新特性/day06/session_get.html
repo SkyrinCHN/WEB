@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+
+  <script>
+    var name = sessionStorage["name"];
+    var car1 = sessionStorage["car1"];
+    var car2 = sessionStorage["car2"];
+    var car3 =localStorage["car3"];
+    document.write(`我叫${name},我有两辆车,一辆是${car1},一辆是${car2}<hr>`)
+    document.write(`对了,我还要一辆${car3}<hr>`);
+    var name1 = sessionStorage["name1"];
+    var car3 = sessionStorage["car3"];
+    document.write(`我叫${name1},我有一辆${car3}<hr>`);
+    // sessionStorage.removeItem("car1");
+    var key = sessionStorage.key(1);
+    document.write(sessionStorage.length);
+    console.log(key);
+  </script>
+</body>
+
+</html>

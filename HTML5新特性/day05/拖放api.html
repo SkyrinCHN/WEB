@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body{position: relative;}
+    img{position: absolute;}
+  </style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <h3>拖动操作--源对象触发的3个事件</h3>
+  <img src="../public/res/p3.png" id="p3">
+  <script>
+    var p3 = document.getElementById("p3");
+    var startX = 0;
+    var startY = 0;
+    //这俩变量保存,拖动开始时的偏移量
+    p3.ondragstart=function(e){
+      startX = e.offsetX;
+      startY =e.offsetY;
+    };
+    p3.ondrag=function(e){
+      var x = e.clientX;
+      var y = e.clientY;
+      console.log(x,y);
+      if(x==0 && y==0){return}
+      p3.style.top=(y-startY)+"px";
+      p3.style.left=(x-startX)+"px";
+      console.log( p3.style.top);
+    };
+    p3.ondragend=function(){};
+
+   
+  </script>
+</body>
+</html>

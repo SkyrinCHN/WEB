@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body {
+      text-align: center;
+    }
+
+    button {
+      width: 200px;
+      height: 50px;
+      border-radius: 5px;
+      background: rgb(81, 159, 231);
+      color: #fff;
+      font-size: 15px;
+    }
+
+    button:hover {
+      transition: 1s;
+      border: 1px solid pink;
+      font-size: 18px;
+    }
+
+    #connection {
+      background: rgb(25, 196, 48);
+    }
+
+    #close {
+      background: #e65512;
+    }
+
+    h3 {
+      font-family: Monaco, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <h3>WebSocket客户端</h3>
+  <button id="connection">连接服务器</button>
+  <button id="btn2">发送数据</button>
+  <button id="close">关闭连接</button>
+  <script>
+    //创建全局变量保存webSocked对象
+    var ws = null;
+    //获取三个按钮 绑定单击事件
+    var connection = document.getElementById("connection")
+    var btn2 = document.getElementById("btn2")
+    var close = document.getElementById("close")
+    //连接服务器  接收服务器返回的信息
+    connection.onclick = function () {
+       ws = new WebSocket("ws://127.0.0.1:9001");
+      // console.log("开始连接服务器....")
+      ws.onmessage = function (e) {
+        console.log(e.data);
+      }
+    }
+     //向服务器发送数据
+     btn2.onclick=function(){
+       ws.send("I'm client"+ new Date());
+
+     }
+    //关闭连接
+    close.onclick=function(){
+      // console.log("正在关闭连接...");
+      ws.close();
+    }
+  </script>
+</body>
+
+</html>
