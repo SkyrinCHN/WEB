@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const pool = require("./pool")
-const session = require("express-session")
+const pool = require("./pool");
+const session = require("express-session");
 var app = express();
 app.use(express.static("public"));
 app.listen(3000);
@@ -12,36 +12,39 @@ app.use(cors({
 }))
 //session配置
 app.use(session({
-  secret:"128位随机字符串",   //安全令牌
-  resave:false,              //请求保存
-  saveUninitialized:true,    //初始化
-  cookie:{                   //sessionid保存时
-    maxAge:1000*60*60*24     //间1天 cookie
+  secret: "128位随机字符串", //安全令牌
+  resave: false, //请求保存
+  saveUninitialized: true, //初始化
+  cookie: { //sessionid保存时
+    maxAge: 1000 * 60 * 60 * 24 //间1天 cookie
   }
 }));
 
 //功能十二:退出登录
 app.get("/logout", (req, res) => {
   req.session.uid = null;
-  res.send({code:1,msg:"退出成功"})
+  res.send({
+    code: 1,
+    msg: "退出成功"
+  })
 })
 // 功能一:首页轮播图
 app.get("/getImages", (req, res) => {
   var pics = [{
       id: 1,
-      img_url: "http://127.0.0.1:3000/img/banner1.png"
+      img_url: "http://localhost:3000/img/banner1.png"
     },
     {
       id: 2,
-      img_url: "http://127.0.0.1:3000/img/banner2.png"
+      img_url: "http://localhost:3000/img/banner2.png"
     },
     {
       id: 3,
-      img_url: "http://127.0.0.1:3000/img/banner3.png"
+      img_url: "http://localhost:3000/img/banner3.png"
     },
     {
       id: 4,
-      img_url: "http://127.0.0.1:3000/img/banner4.png"
+      img_url: "http://localhost:3000/img/banner4.png"
     }
   ];
   res.send(pics);
@@ -301,37 +304,46 @@ app.get("/getGoodsList", (req, res) => {
   });
 });
 //功能七:添加商品到购物车
-app.get("/addCart",(req,res)=>{
+app.get("/addCart", (req, res) => {
   //1:参数 uid pid price count
-  var uid   = parseInt(req.session.uid);
-  var pid   = parseInt(req.query.pid);
+  var uid = parseInt(req.session.uid);
+  var pid = parseInt(req.query.pid);
   var price = parseFloat(req.query.price);
   var count = parseInt(req.query.count);
   //2:sql  INSERT
-  var sql=" INSERT INTO `xz_cart`(`id`, ";
-      sql+=" `uid`, `pid`, `price`,";
-      sql+=" `count`) VALUES (null,?,?,?,?)";
-  pool.query(sql,[uid,pid,price,count],(err,result)=>{
+  var sql = " INSERT INTO `xz_cart`(`id`, ";
+  sql += " `uid`, `pid`, `price`,";
+  sql += " `count`) VALUES (null,?,?,?,?)";
+  pool.query(sql, [uid, pid, price, count], (err, result) => {
     if (err) throw err;
     // console.log(result);
-      if(result.affectedRows > 0){
-        res.send({code:1,msg:"添加成功"});
-      }else{
-        res.send({code:-1,msg:"添加失败"});
-      }
+    if (result.affectedRows > 0) {
+      res.send({
+        code: 1,
+        msg: "添加成功"
+      });
+    } else {
+      res.send({
+        code: -1,
+        msg: "添加失败"
+      });
+    }
   })
   //3:json {code:1,msg:"添加成功"}
 });
 
 //功能八:查询商品信息(补充价格信息,前边没有)
-app.get("/getProduct",(req,res)=>{
+app.get("/getProduct", (req, res) => {
   //1:参数 商品id
   var pid = parseInt(req.query.id);
   //2:sql  SELECT id,name,price,
-  var sql =" SELECT `id`, `name`, `img_url` , `price`, `bank` FROM `xz_product` WHERE id=?";
-  pool.query(sql,[pid],(err,result)=>{
-     if(err)throw err;
-     res.send({code:1,data:result[0]})
+  var sql = " SELECT `id`, `name`, `img_url` , `price`, `bank` FROM `xz_product` WHERE id=?";
+  pool.query(sql, [pid], (err, result) => {
+    if (err) throw err;
+    res.send({
+      code: 1,
+      data: result[0]
+    })
   });
 });
 
@@ -342,20 +354,32 @@ app.get("/register", (req, res) => {
   var reg = /^[a-z0-9_]{8,12}$/;
 
   if (!reg.test(name)) {
-    res.send({ code: -1, msg: "用户名格式不正确" });
+    res.send({
+      code: -1,
+      msg: "用户名格式不正确"
+    });
     return;
   }
-  if (pwd.trim().length < 6 || pwd.trim().length>12) {
-    res.send({ code: -1, msg: "密码长度不正确" })
+  if (pwd.trim().length < 6 || pwd.trim().length > 12) {
+    res.send({
+      code: -1,
+      msg: "密码长度不正确"
+    })
     return;
   }
   var sql = "insert into xz_login values(null,?,md5(?))"
   pool.query(sql, [name, pwd], (err, result) => {
     if (err) throw err;
     if (result.affectedRows > 0) {
-      res.send({ code: 1, msg: "注册成功" });
+      res.send({
+        code: 1,
+        msg: "注册成功"
+      });
     } else {
-      res.send({ code: -1, msg: "验证通过,但注册失败" });
+      res.send({
+        code: -1,
+        msg: "验证通过,但注册失败"
+      });
     }
   })
 })
@@ -365,22 +389,29 @@ app.get("/existsName", (req, res) => {
   var name = req.query.name;
   var reg = /^[a-z0-9_]{8,12}$/i;
   if (!reg.test(name)) {
-    res.send({ code: -1, msg: "用户名格式不正确" });
+    res.send({
+      code: -1,
+      msg: "用户名格式不正确"
+    });
     return;
   }
   var sql = "select count(id) as c from xz_login where name=?";
   pool.query(sql, [name], (err, result) => {
     if (err) throw err;
 
-    if (result[0].c>0) {
-      res.send({ code: -1, msg: "用户名已存在" });
+    if (result[0].c > 0) {
+      res.send({
+        code: -1,
+        msg: "用户名已存在"
+      });
     } else {
-      res.send({ code: 1, msg: "用户名可使用" });
+      res.send({
+        code: 1,
+        msg: "用户名可使用"
+      });
     }
   })
 })
-
-
 
 //功能十一:登录
 app.get("/Login", (req, res) => {
@@ -388,21 +419,30 @@ app.get("/Login", (req, res) => {
   var pwd = req.query.pwd;
   var reg = /^[a-z0-9_]{3,12}$/i;
   if (!reg.test(name)) {
-    res.send({ code: -1, msg: "用户名格式不正确" });
+    res.send({
+      code: -1,
+      msg: "用户名格式不正确"
+    });
     return;
   }
   var sql = "select id,count(id) as c from xz_login where name =? and pwd = md5(?) group by id";
   pool.query(sql, [name, pwd], (err, result) => {
     if (err) throw err;
-    if (result.length>0) {
+    if (result.length > 0) {
       req.session.uid = result[0].id;
-      res.send({ code: 1, msg: "登录成功" });
+      res.send({
+        code: 1,
+        msg: "登录成功"
+      });
       console.log(req.session.uid);
       console.log("用户的UID为:" + req.session.uid)
       console.log("查询count的结果为:" + result[0].c);
     } else {
       // console.log(result);
-      res.send({code:-1,msg:"用户名或密码错误"})
+      res.send({
+        code: -1,
+        msg: "用户名或密码错误"
+      })
     }
 
   })
@@ -415,7 +455,10 @@ app.get("/getCartList", (req, res) => {
   pool.query(sql, [uid], (err, result) => {
     if (err) throw err;
     // console.log(result);
-       res.send({ code: 1, data: result });
+    res.send({
+      code: 1,
+      data: result
+    });
   })
 })
 
@@ -423,13 +466,190 @@ app.get("/getCartList", (req, res) => {
 app.get("/updateCart", (req, res) => {
   var id = req.query.id;
   var count = req.query.count;
-  var sql = "updata xz_cart set count=? where id = ?";
+  var sql = "update xz_cart set count=? where id = ?";
   pool.query(sql, [count, id], (err, result) => {
     if (err) throw err;
     if (result.affectedRows > 0) {
-      res.send({ code: 1, msg: "修改成功" });
+      res.send({
+        code: 1,
+        msg: "修改成功"
+      });
     } else {
-      res.send({ code: -1, msg: "修改失败" });
+      res.send({
+        code: -1,
+        msg: "修改失败"
+      });
     }
   })
 })
+
+//功能十四 小程序的九宫格
+app.get("/getNavImages", (req, res) => {
+  var list = [{
+    id: 1,
+    img_url: "http://localhost:3000/img/icons/grid-01.png",
+    title: "美食"
+  }, {
+    id: 2,
+    img_url: "http://localhost:3000/img/icons/grid-02.png",
+    title: "洗浴"
+  }, {
+    id: 3,
+    img_url: "http://localhost:3000/img/icons/grid-03.png",
+    title: "结婚啦"
+  }, {
+    id: 4,
+    img_url: "http://localhost:3000/img/icons/grid-04.png",
+    title: "KTV"
+  }, {
+    id: 5,
+    img_url: "http://localhost:3000/img/icons/grid-05.png",
+    title: "找工作"
+  }, {
+    id: 6,
+    img_url: "http://localhost:3000/img/icons/grid-06.png",
+    title: "指导班"
+  }, {
+    id: 7,
+    img_url: "http://localhost:3000/img/icons/grid-07.png",
+    title: "汽车保养"
+  }, {
+    id: 8,
+    img_url: "http://localhost:3000/img/icons/grid-08.png",
+    title: "租房"
+  }, {
+    id: 9,
+    img_url: "http://localhost:3000/img/icons/grid-09.png",
+    title: "装修"
+  }];
+  res.send(list);
+
+})
+//功能十五  小程序 商店列表
+app.get("/getShopList", (req, res) => {
+  //1:参数       pno 页码;pageSize 页大小
+  var pno = req.query.pno;
+  var pageSize = req.query.pageSize;
+  //1.2:默认值
+  if (!pno) {
+    pno = 1;
+  }
+  if (!pageSize) {
+    pageSize = 7;
+  }
+  //2:验证正则表达式
+  var reg = /^[0-9]{1,}$/;
+  if (!reg.test(pno)) {
+    res.send({
+      code: -1,
+      msg: "页码格式不正确"
+    });
+    return;
+  }
+  if (!reg.test(pageSize)) {
+    res.send({
+      code: -2,
+      msg: "页大小格式不正确"
+    });
+    return;
+  }
+  //3:创建sql
+  //  查询总页数
+  var sql = "SELECT count(id) as c FROM xz_shoplist";
+  var progress = 0; //sql执行进度
+  obj = {
+    code: 1
+  };
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    //console.log(result[0].c);
+    var pageCount = Math.ceil(result[0].c / pageSize);
+    obj.pageCount = pageCount;
+    progress += 50;
+    if (progress == 100) {
+      res.send(obj);
+    }
+  });
+  //  查询当前页内容
+  var sql = " SELECT id,img_url,dname,daddr,dphone,dtime,dpoint FROM xz_shoplist  LIMIT ?,?";
+  var offset = parseInt((pno - 1) * pageSize);
+  pageSize = parseInt(pageSize);
+  pool.query(sql, [offset, pageSize], (err, result) => {
+    if (err) throw err;
+    //console.log(result);
+    obj.data = result;
+    progress += 50;
+    if (progress == 100) {
+      res.send(obj);
+    }
+  });
+});
+
+//功能十六 小程序添加商品
+app.get("/addProduct", (req, res) => {
+  var pname = req.query.pname;
+  var price = req.query.price;
+  var sql = "insert into xz_product(name,price) values(?,?)";
+  pool.query(sql, [pname, price], (err, result) => {
+    if (err) throw err;
+    if (result.affectedRows > 0) {
+      res.send({code:1,msg:"添加成功"})
+    } else {
+      res.send({code:-1,msg:"添加失败"})
+    }
+  })
+})
+
+//小程序 消息列表
+app.get("/getMessage",(req,res)=>{
+  //1:参数       pno 页码;pageSize 页大小
+  var pno = req.query.pno;
+  var pageSize = req.query.pageSize;
+  //1.2:默认值
+  if(!pno){
+    pno = 1;
+  }
+  if(!pageSize){
+    pageSize = 2;
+  }
+  //2:验证正则表达式
+  var reg = /^[0-9]{1,}$/;
+  if(!reg.test(pno)){
+     res.send({code:-1,msg:"页码格式不正确"});
+     return;
+  }
+  if(!reg.test(pageSize)){
+    res.send({code:-2,msg:"页大小格式不正确"});
+    return;
+  }
+  //3:创建sql
+  //  查询总页数
+  var sql = "SELECT count(id) as c FROM xz_message";
+  var progress = 0; //sql执行进度
+  obj = {code:1};
+  pool.query(sql,(err,result)=>{
+       if(err)throw err;
+       //console.log(result[0].c);
+       var pageCount = Math.ceil(result[0].c/pageSize);
+       obj.pageCount = pageCount;
+       progress += 50;
+       if(progress == 100){
+        res.send(obj);
+       }
+  });
+  //  查询当前页内容
+var sql=" SELECT id,img_url,title,ctime,desc2,content";
+    sql +=" FROM xz_message";
+    sql +=" LIMIT ?,?"
+var offset = parseInt((pno-1)*pageSize);
+pageSize = parseInt(pageSize);
+  pool.query(sql,[offset,pageSize],(err,result)=>{
+    if(err)throw err;
+    //console.log(result);
+    obj.data = result;
+    progress+=50;
+    if(progress==100){
+      res.send(obj);
+    }
+  }); 
+});
