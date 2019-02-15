@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+<body>
+  <div id="example"></div>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script type="text/babel">
+
+
+  var MyTest=  React.createClass({
+    handleClick:function () {
+      this.props.myFunc(123456)
+    },
+      render:function () {
+        return <button onClick={this.handleClick}>点击事件</button>
+      }
+    })
+
+
+  var MyComponent = React.createClass({
+    handleLogin:function (msg) {
+      console.log('组件MyComponent中的方法被调用',msg)
+    },
+    render:function () {
+      return <div>
+        <MyTest myFunc={this.handleLogin}></MyTest>
+        </div>
+    }
+  })
+
+
+
+
+    ReactDOM.render(
+      <MyComponent></MyComponent>,
+      document.getElementById("example")
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/browser.min.js"></script>
+  <script src="../js/react-dom.js"></script>
+</body>
+</html>

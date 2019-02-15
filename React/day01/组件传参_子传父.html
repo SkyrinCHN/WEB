@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <div id="example"></div>
+  <script type="text/babel">
+    var Child=React.createClass({
+      emitUp:function () {
+        this.props.myFunc('这是传递的参数')
+      },
+      render:function () {
+        return  <button onClick={this.emitUp}>{this.props.btnName}</button>
+      }
+    })
+    var Father = React.createClass({
+      connectFunc:function (msg) {
+        console.log(msg)
+        // document.wrire(msg)
+        // Toast(msg);
+      },
+      render:function () {
+        return <div><Child btnName='子组件' myFunc={this.connectFunc}></Child></div>
+      }
+    })
+    ReactDOM.render(
+      <div><Father></Father></div>,
+      document.getElementById('example')
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/react-dom.js"></script>
+  <script src="../js/browser.min.js"></script>
+</body>
+</html>

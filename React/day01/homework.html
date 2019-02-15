@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <div id="example"></div>
+  <script type="text/babel">
+    var MyBtn = React.createClass({
+    addLi:function () {
+      console.log(this.input.value);
+    },
+    render:function () {
+        return <button onClick={this.addLi}>{this.props.btnName}</button>
+      }
+    })
+    var MyInput = React.createClass({
+      render:function(){
+        return  <input type="text"/>
+      }
+    })
+    var MyTitle = React.createClass({
+      render:function(){
+        return <p>{this.props.titleName}</p>
+      }
+    })
+    var MyToDo=React.createClass({
+      render:function(){
+        return <div>
+        <MyTitle titleName='待办事项列表'></MyTitle>
+          <MyInput></MyInput>
+          <MyBtn btnName='add'></MyBtn>
+        </div>
+      }
+    })
+
+    var MyUl=React.createClass({
+      render:function () {
+        return <ul>
+          <MyBtn btnName='Delete'></MyBtn>
+          <MyLi></MyLi>
+          </ul>
+      }
+    })
+    var MyLi =React.createClass({
+      render:function(){
+        return <li>123456</li>
+      }
+    })
+    var MyForm = React.createClass({
+      render:function () {
+        return <form>
+          <MyToDo></MyToDo>
+          <br/>
+          <MyUl></MyUl>
+          </form>
+      }
+    })
+
+    ReactDOM.render(
+      <div>
+        <MyForm></MyForm>
+      </div>,
+      document.getElementById("example")
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/react-dom.js"></script>
+  <script src="../js/browser.min.js"></script>
+</body>
+
+</html>

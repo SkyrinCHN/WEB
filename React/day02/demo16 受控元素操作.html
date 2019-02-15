@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+<body>
+  <div id="example"></div>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script type="text/babel">
+    var MyForm=React.createClass({
+      getInitialState:function () {
+        return {addr:'beijing'}
+      },
+      handelChange:function(e){
+        console.log('chang event is triggered',e.target.value);
+        this.setState({addr:e.target.value});
+      },
+      render:function () {
+        return <form>
+          <input type='text' defaultValue='jerry' />
+          <br/>
+          <input type='text' value={this.state.addr} onChange={this.handelChange}/>
+          </form>
+      }
+    })
+    ReactDOM.render(
+     <MyForm></MyForm>,
+      document.getElementById("example")
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/browser.min.js"></script>
+  <script src="../js/react-dom.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <div id="example">
+   
+  </div>
+  <script type="text/babel">
+  var MyButtonLogin =  React.createClass({
+      render:function () {
+        return <button>login</button>
+      }
+    })
+
+  var MyButtonRegister=  React.createClass({
+    render:function () {
+      return <button>register</button>
+    }
+  })
+  var MyInputName=  React.createClass({
+    render:function () {
+      return <input type="text" placeholder='uname'/>
+    }
+  })
+  var MyInputPwd=  React.createClass({
+    render:function () {
+      return <input type="password" placeholder='upwd'/>
+    }
+  })
+    var MyForm =React.createClass({
+      render:function(){
+        return <form>
+          <MyInputName></MyInputName>
+          <br/>
+          <MyInputPwd></MyInputPwd>
+          <br/>
+          <MyButtonLogin></MyButtonLogin>
+          <MyButtonRegister></MyButtonRegister>
+          </form>
+      }
+    })
+    ReactDOM.render(
+      <MyForm></MyForm>,
+      document.getElementById('example')
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/react-dom.js"></script>
+  <script src="../js/browser.min.js"></script>
+</body>
+</html>

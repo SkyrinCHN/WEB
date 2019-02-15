@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+<body>
+  <div id="example"></div>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script type="text/babel">
+    var Test = React.createClass({
+      getInitialState:function () {
+        return {
+          isLogin:true,
+          list:[75,44,82,95,100]
+        }
+      },
+      showScoreInfo:function () {
+        //遍历数组,得到平均成绩,大于80,P标签显示优秀,否则显示一般
+        var totalScore = 0; //总分数 0
+        for(let i = 0;i<this.state.list.length;i++){
+          totalScore+=this.state.list[i];
+        }
+        var avgScore = totalScore/this.state.list.length;
+        if(avgScore>80){
+          return <p>优秀</p>
+        }else{
+          return <p>一般</p>
+        }
+      },
+      render:function () {
+        return <div>
+          {this.state.isLogin
+            &&
+            <p>欢迎张三登录</p>
+          }
+          {
+            this.showScoreInfo()
+          }
+          </div>
+      }
+    })
+    ReactDOM.render(
+      <div>
+        <Test></Test>
+      </div>,
+      document.getElementById("example")
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/browser.min.js"></script>
+  <script src="../js/react-dom.js"></script>
+</body>
+</html>

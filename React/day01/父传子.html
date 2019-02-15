@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <div id="example">
+   
+  </div>
+  <script type="text/babel">
+  var MyButton=  React.createClass({
+    render:function () {
+      return <button>{this.props.myTitle}</button>
+    }
+  })
+  var MyInput=  React.createClass({
+    render:function () {
+      return <input type={this.props.type} placeholder={this.props.placeholder}/>
+    }
+  })
+    var MyForm =React.createClass({
+      render:function(){
+        return <form>
+          <MyInput placeholder='uname' type='text' ></MyInput>
+          <br/>
+          <MyInput placeholder='upwd' type='password'></MyInput>
+          <br/>
+          <MyButton myTitle='login'></MyButton>
+          <MyButton myTitle='register'></MyButton>
+          </form>
+      }
+    })
+    ReactDOM.render(
+      <MyForm></MyForm>,
+      document.getElementById('example')
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/react-dom.js"></script>
+  <script src="../js/browser.min.js"></script>
+</body>
+</html>

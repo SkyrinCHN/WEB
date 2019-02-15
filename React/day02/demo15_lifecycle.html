@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+<body>
+  <div id="example"></div>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script type="text/babel">
+    var MyComponent   = React.createClass({
+      getInitialState:function () {
+        return {count:0}
+      },
+      componentWillMount:function () {
+        //挂载前  钩子函数
+        console.log('组件准备挂载',this.refs.myTest)
+      },
+      componentDidMount:function () {
+        //挂载后  钩子函数
+        console.log('组件挂载完毕',this.refs.myTest)
+      },
+      componentWillUpdate:function () {
+        //状态变化(state)后会触发update  钩子函数
+        console.log('有数据变化了');
+      },
+       handelClick:function () {
+        var nowCount = this.state.count;
+        nowCount++;
+        this.setState({count:nowCount});
+      },
+      render:function () {
+          return <div><p ref='myTest'>{this.state.count}</p>
+            <button onClick={this.handelClick}>clickMe</button></div>
+      }
+    })
+    ReactDOM.render(
+      <div>
+        <MyComponent myTitle='sss'></MyComponent>
+      </div>,
+      document.getElementById("example")
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/browser.min.js"></script>
+  <script src="../js/react-dom.js"></script>
+</body>
+</html>

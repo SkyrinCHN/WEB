@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <div id="example"></div>
+  <script type="text/babel">
+    //创建组件
+   var MyComponent= React.createClass({
+      render:function () {
+        return <h2>这是一个组件</h2>
+      } 
+    });
+    var MyComponent_1 = React.createClass({
+      render:function(){
+        return <p>这是第二个组件</p>
+      }
+    })
+    //调用组件
+    ReactDOM.render(
+      <MyComponent></MyComponent>,
+      document.getElementById('example')
+    )
+    //调用第二个组件
+    ReactDOM.render(
+      <div>
+        <MyComponent></MyComponent>
+        <MyComponent_1></MyComponent_1>
+      </div>,
+      document.getElementById('example')
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/react-dom.js"></script>
+  <script src="../js/browser.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <div id="example"></div>
+  <script type="text/babel">
+    var ToDoInfo = React.createClass({
+    handelClick:function () {
+      //接收父组件传递过来的方法 funcAdd
+      var content = this.refs.myInput;
+      this.props.funcAdd(content);
+    },
+    render:function () {
+        return <div>
+          <input type="text"  ref='myInput' />
+          <button onClick={this.handelClick}>add</button>
+          </div>
+      }
+    })
+
+    var ToDoList=React.createClass({
+      render:function () {
+        return <ul>
+          {
+            this.props.myList.map((value,index)=>{
+              return <ToDoItem key={index}>{value}</ToDoItem>
+            })
+          }
+          </ul>
+      }
+    })
+    var ToDoItem = React.createClass({
+      render:function () {
+        return <li><button>delete</button></li>
+      }
+    })
+    var MyForm = React.createClass({
+      getInitialState:function () {
+        return {list:[]}
+      },
+      addToList:function (msg) {
+      var nowList = this.state.list;
+      nowList.push(msg);
+      this.setState({list:nowList});
+      console.log(this.state.list);
+      },
+      render:function () {
+        return <form>
+          <ToDoInfo funcAdd={this.addToList}></ToDoInfo>
+          <ToDoList myList={this.state.list}></ToDoList>
+          </form>
+      }
+    })
+
+    ReactDOM.render(
+      <div>
+        <MyForm></MyForm>
+      </div>,
+      document.getElementById("example")
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/react-dom.js"></script>
+  <script src="../js/browser.min.js"></script>
+</body>
+</html>

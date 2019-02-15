@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+<body>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <div id="example"></div>
+  <script type='text/babel'>
+    var ToDoInput=React.createClass({
+      handelClick:function () {
+        //声明变量接收input标签的值 ref
+        var content = this.refs.myInput.value;
+        //传值到父组件 子传父
+        this.props.funcAdd(content);
+        //清空input标签里输入的值
+        this.refs.myInput.value='';
+      },
+      render:function () {
+        return <div>
+          <input type='text' ref='myInput'/>
+          <button onClick={this.handelClick}>add</button>
+          </div>
+      }
+    })
+    var ToDoItem=React.createClass({
+      handelClick:function () {
+        this.props.listIndex();
+      },
+      render:function () {
+        return <li><button onClick={this.handelClick}>delete</button>{this.props.liValue}</li>
+      }
+    })
+    var ToDoList=React.createClass({
+      render:function () {
+        return <ul> {
+          this.props.myList.map((value,index)=>{
+            return  <ToDoItem key={index} liValue={value} listIndex={()=>this.props.funcDel(index)} ></ToDoItem>       
+          })
+        } </ul>
+      }
+    })
+    var ToDoBox=React.createClass({
+      getInitialState:function () {
+        //状态一个空数组  接收 父元素的值
+        return {list:[]}
+      },
+      todoAdd:function (msg) {
+        //声明一个临时数组接收 list数组的值
+        var nowList = this.state.list;r
+        //把父元素传递的值 追加到 nowlist数组里
+        nowList.push(msg);
+        //nowlist数组的值赋值到this.state.list里
+        this.setState({list:nowList})
+        console.log(this.state.list);
+      },
+      //删除方法 
+      delFromList:function (index) {
+        var nowList = this.state.list;
+        nowList.splice(index,1);
+        this.setState({list:nowList})
+      },
+      render:function () {
+        return <div><ToDoInput funcAdd={this.todoAdd}></ToDoInput>
+              <ToDoList myList={this.state.list} funcDel={this.delFromList} ></ToDoList>
+              </div>
+      }
+    })
+    ReactDOM.render(
+      <ToDoBox></ToDoBox>,
+      document.getElementById('example')
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/react-dom.js"></script>
+  <script src="../js/browser.min.js"></script>
+</body>
+</html>

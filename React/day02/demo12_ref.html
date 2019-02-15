@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <title>Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style></style>
+</head>
+<body>
+  <div id="example"></div>
+  <!--author:LiuHai -->
+  <!--github:https://github.com/SkyrinCHN	-->
+  <script type="text/babel">
+  var SonComponet=React.createClass({
+    msg:'这是子组件的数据',
+    render:function () {
+      return <p>这是子组件</p>
+    }
+  })
+  var ParentComponent=React.createClass({
+    handelClick: function () {
+        //获取子组件中的数据
+       console.log(this.refs.mySon.msg)
+       //获取父组件中input输入框的数据
+       console.log(this.refs.myInput.value) 
+      },
+    render:function(){
+      return <div>
+        <button onClick={this.handelClick}>clickMe</button>
+        <input type='text' ref='myInput'/>
+        <SonComponet ref='mySon'></SonComponet>
+      </div>
+    }
+  })
+    ReactDOM.render(
+      <div>
+      <ParentComponent></ParentComponent>
+      </div>,
+      document.getElementById("example")
+    )
+  </script>
+  <script src="../js/react.js"></script>
+  <script src="../js/browser.min.js"></script>
+  <script src="../js/react-dom.js"></script>
+</body>
+</html>
