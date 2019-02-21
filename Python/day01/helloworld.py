@@ -127,28 +127,27 @@ print(c,'>= 100.游戏结束')
 
 
 #用户给N个数,打印相加的总和
-'''
+
 total = 0 
 for number in range(1,6):
     value = int(input('请输入数字->:'))
     print()
     print('这是第',number,'个数')
-    total = total + value
+    total += value
     print('现在的和为',total)
     print('----------------------')
 print('总和为',total)
-'''
-'''
-number = float(input('What is the number?'))
-floor = 0
-while floor<=number:
-    floor = floor + 1
-floor = floor - 1
-print('The floor of',number,'is',floor)
-'''
-def floor (number):
-    result = 0
-    while result <= number:
-        result = result + 1
-    result = result - 1
-    return result
+
+# number = float(input('What is the number?'))
+# floor = 0
+# while floor<=number:
+#     floor = floor + 1
+# floor = floor - 1
+# print('The floor of',number,'is',floor)
+
+# def floor (number):
+#     result = 0
+#     while result <= number:
+#         result = result + 1
+#     result = result - 1
+#     return result
